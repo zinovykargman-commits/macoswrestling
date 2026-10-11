@@ -1,0 +1,50 @@
+{
+  "version": "0.4.4",
+  "unity": "6000.3.7f1",
+  "minimumMacOS": "12.0",
+  "nativeBinaries": [
+    {
+      "file": "Contents/Frameworks/libmono-native.dylib",
+      "architectures": [
+        16777223,
+        16777228
+      ]
+    },
+    {
+      "file": "Contents/Frameworks/libmonobdwgc-2.0.dylib",
+      "architectures": [
+        16777223,
+        16777228
+      ]
+    },
+    {
+      "file": "Contents/Frameworks/libMonoPosixHelper.dylib",
+      "architectures": [
+        16777223,
+        16777228
+      ]
+    },
+    {
+      "file": "Contents/Frameworks/UnityPlayer.dylib",
+      "architectures": [
+        16777223,
+        16777228
+      ]
+    },
+    {
+      "file": "Contents/MacOS/GRIP BREAK",
+      "architectures": [
+        16777223,
+        16777228
+      ]
+    }
+  ],
+  "sourceRuntimeFiles": 229,
+  "gameplaySourcesMatchWindows": true,
+  "buildSucceeded": true,
+  "buildErrors": 0,
+  "buildWarnings": 0,
+  "nativeMacTested": false,
+  "moduleDownloadBytes": 513038240,
+  "moduleInstalledBytes": 2245222625
+}

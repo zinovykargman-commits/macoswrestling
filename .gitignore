@@ -1,0 +1,11 @@
+Source/Library/
+Source/Logs/
+Source/Temp/
+Source/UserSettings/
+Build/
+incoming/
+stage/
+checks/
+*.zip
+*.csproj
+*.sln

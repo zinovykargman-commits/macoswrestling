@@ -1,0 +1,62 @@
+name: Check native Mac package
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch and verify staged release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v0.4.4 --repo "$GITHUB_REPOSITORY" --pattern GRIP_BREAK-macOS.zip --dir incoming
+          python3 -c 'import json,hashlib,pathlib; p=pathlib.Path("incoming/GRIP_BREAK-macOS.zip"); e=json.load(open("release-evidence/mac-unsigned-assets.json"))[p.name]; assert p.stat().st_size==e["size"] and hashlib.sha256(p.read_bytes()).hexdigest()==e["sha256"]'
+          ditto -x -k incoming/GRIP_BREAK-macOS.zip stage
+      - name: Sign with local ad-hoc identity and check bundle
+        run: |
+          codesign --force --deep --options runtime --sign - --entitlements Mac.entitlements 'stage/GRIP BREAK.app'
+          codesign --verify --deep --strict --verbose=2 'stage/GRIP BREAK.app'
+          lipo -archs 'stage/GRIP BREAK.app/Contents/MacOS/GRIP BREAK'
+          cd stage
+          ditto -c -k --sequesterRsrc --keepParent 'GRIP BREAK.app' ../GRIP_BREAK-macOS.zip
+          cd ..
+          shasum -a 256 GRIP_BREAK-macOS.zip > GRIP_BREAK-macOS-SHA256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signed-mac-game
+          path: |
+            GRIP_BREAK-macOS.zip
+            GRIP_BREAK-macOS-SHA256.txt
+          retention-days: 7
+  native:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: signed-mac-game
+          path: incoming
+      - name: Run native physics and startup checks
+        run: |
+          cd incoming
+          shasum -a 256 -c GRIP_BREAK-macOS-SHA256.txt
+          cd ..
+          ditto -x -k incoming/GRIP_BREAK-macOS.zip stage
+          codesign --verify --deep --strict --verbose=2 'stage/GRIP BREAK.app'
+          python3 test-native-mac.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-${{ matrix.runner }}
+          path: checks
+          retention-days: 7
