@@ -5,7 +5,10 @@ root=Path.cwd();exe=root/'stage/GRIP BREAK.app/Contents/MacOS/GRIP BREAK';checks
 command=[str(exe),'-batchmode','-nographics','--stamina-test','--evidence',str(checks/'stamina'),'-logFile',str(checks/'stamina.log')]
 subprocess.run(command,check=True,timeout=120)
 report=json.loads((checks/'stamina/stamina.json').read_text());assert report['issues']==0 and all(c['passed'] for c in report['checks'])
-summary={'platform':platform.platform(),'architecture':platform.machine(),'nativeStaminaChecks':len(report['checks']),'nativePhysicsPassed':True,'graphicsTested':False,'privateInternetJoinTested':False}
+extra=checks/'scramble'
+subprocess.run([str(exe),'-batchmode','-nographics','--scramble-test','--evidence',str(extra),'-logFile',str(checks/'scramble.log')],check=True,timeout=120)
+extraReport=json.loads((extra/'scramble.json').read_text());assert extraReport['issues']==0 and all(c['passed'] for c in extraReport['checks'])
+summary={'platform':platform.platform(),'architecture':platform.machine(),'nativeStaminaChecks':len(report['checks']),'nativeScrambleChecks':len(extraReport['checks']),'nativePhysicsPassed':True,'graphicsTested':False,'privateInternetJoinTested':False}
 invite=os.environ.get('GRIP_TEST_INVITE','')
 if invite and platform.machine()=='arm64':
     cross=checks/'cross';cross.mkdir();inviteFile=cross/'invite.txt';inviteFile.write_text(invite)

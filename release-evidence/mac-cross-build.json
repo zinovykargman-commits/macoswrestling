@@ -1,5 +1,5 @@
 {
-  "version": "0.4.4",
+  "version": "0.4.5",
   "unity": "6000.3.7f1",
   "minimumMacOS": "12.0",
   "nativeBinaries": [
@@ -39,7 +39,7 @@
       ]
     }
   ],
-  "sourceRuntimeFiles": 229,
+  "sourceRuntimeFiles": 230,
   "gameplaySourcesMatchWindows": true,
   "buildSucceeded": true,
   "buildErrors": 0,
