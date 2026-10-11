@@ -1,0 +1,11 @@
+{
+  "platform": "macOS-15.7.9-arm64-arm-64bit-Mach-O",
+  "architecture": "arm64",
+  "nativeStaminaChecks": 9,
+  "nativePhysicsPassed": true,
+  "graphicsTested": true,
+  "privateInternetJoinTested": true,
+  "crossPlatformClientChecks": 14,
+  "uiChecks": 2,
+  "graphicsDevice": "Apple Paravirtual device"
+}

@@ -1,0 +1,7 @@
+# Mac 0.4.4 verification
+
+Unity6000.3.7f1 universal Mono/Metal build succeeded with zero errors/warnings. All5 native binaries include x86_64 and arm64. Minimum macOS12. Native GitHub macOS15 Intel/Apple Silicon startup/physics checks and rendered menus passed; actual menu/online screenshots inspected. A native Windows0.4.4 host prepared a Cloudflare invite, and the Apple Silicon Mac joined across the internet, readied, started and streamed commands/world state. Raw reports are in release-evidence. Human feel, other macOS releases and controllers remain unverified. Mac hosting/controller support and automatic installation of updates are intentionally outside this first keyboard/mouse joining build; GET LATEST MAC VERSION opens downloads.
+
+The Mac runner applied local ad-hoc signatures and verified them. This is not Apple Developer ID signing or notarization; Gatekeeper may require Apple's per-app Open Anyway flow. Published ZIP permissions, CRCs and hashes are checked. SOURCE_BUILD_SHA256 is the raw Windows-cross-build baseline; SOURCE_SIGNED_BUILD_SHA256 describes signed app content. Managed gameplay/resources were checked unchanged by signing. Final public bytes are verified after upload.
+
+The test workflow uses contents-read permission. An initial request for repository write permission was rejected by automatic approval review; the workflow instead fetched a public labelled test release. The test invite was kept in an encrypted temporary game-room secret and removed after testing.

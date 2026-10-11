@@ -1,0 +1,26 @@
+{
+    "build": "0.4.4",
+    "engine": "6000.3.7f1",
+    "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
+    "graphics": "Apple Paravirtual device",
+    "startedUtc": "2026-10-11T22:12:22.6291590Z",
+    "duration": 7.095926284790039,
+    "averageFps": 9.163488388061524,
+    "minFps": 2.2048146724700929,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 1600,
+    "screenHeight": 900,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0000 m"
+        }
+    ]
+}
