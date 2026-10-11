@@ -16,7 +16,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           python3 fetch-draft.py
-          python3 -c 'import json,hashlib,pathlib; p=pathlib.Path("incoming/GRIP_BREAK-macOS.zip"); e=json.load(open("release-evidence/mac-unsigned-assets.json"))[p.name]; assert p.stat().st_size==e["size"] and hashlib.sha256(p.read_bytes()).hexdigest()==e["sha256"]'
+          python3 -c 'import json,hashlib,pathlib; p=pathlib.Path("incoming/GRIP_BREAK-macOS.zip"); e=json.load(open("release-evidence/mac-final-assets.json"))["assets"][p.name]; assert p.stat().st_size==e["size"] and hashlib.sha256(p.read_bytes()).hexdigest()==e["sha256"]'
           ditto -x -k incoming/GRIP_BREAK-macOS.zip stage
       - name: Sign with local ad-hoc identity and check bundle
         run: |
