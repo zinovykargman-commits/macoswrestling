@@ -49,6 +49,8 @@ jobs:
           name: signed-mac-game
           path: incoming
       - name: Run native physics and startup checks
+        env:
+          GRIP_TEST_INVITE: ${{ secrets.GRIP_TEST_INVITE }}
         run: |
           cd incoming
           shasum -a 256 -c GRIP_BREAK-macOS-SHA256.txt

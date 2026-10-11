@@ -1,11 +1,18 @@
 from pathlib import Path
-import subprocess,json,platform,sys,time
+import subprocess,json,platform,sys,time,os
 assert sys.platform=='darwin'
 root=Path.cwd();exe=root/'stage/GRIP BREAK.app/Contents/MacOS/GRIP BREAK';checks=root/'checks';checks.mkdir()
 command=[str(exe),'-batchmode','-nographics','--stamina-test','--evidence',str(checks/'stamina'),'-logFile',str(checks/'stamina.log')]
 subprocess.run(command,check=True,timeout=120)
 report=json.loads((checks/'stamina/stamina.json').read_text());assert report['issues']==0 and all(c['passed'] for c in report['checks'])
 summary={'platform':platform.platform(),'architecture':platform.machine(),'nativeStaminaChecks':len(report['checks']),'nativePhysicsPassed':True,'graphicsTested':False,'privateInternetJoinTested':False}
+invite=os.environ.get('GRIP_TEST_INVITE','')
+if invite and platform.machine()=='arm64':
+    cross=checks/'cross';cross.mkdir();inviteFile=cross/'invite.txt';inviteFile.write_text(invite)
+    try:
+        subprocess.run([str(exe),'--client-test','--tunnel','--seconds','55','--evidence',str(cross),'-logFile',str(checks/'cross.log'),'-screen-width','1600','-screen-height','900','-screen-fullscreen','0'],check=True,timeout=180)
+        peer=json.loads((cross/'client.json').read_text());assert peer['issues']==0 and all(c['passed'] for c in peer['checks']);summary['privateInternetJoinTested']=True;summary['crossPlatformClientChecks']=len(peer['checks'])
+    finally:inviteFile.unlink(missing_ok=True)
 # The hosted Mac may lack a usable desktop/Metal device. Keep graphical
 # observations separate from the required headless physics/startup checks.
 try:
