@@ -1,10 +1,10 @@
 {
-    "build": "0.4.4",
+    "build": "0.4.5",
     "engine": "6000.3.7f1",
     "hardware": "Apple M1 (Virtual) / 7168 MB",
     "graphics": "Null Device",
-    "startedUtc": "2026-10-11T22:12:19.8023010Z",
-    "duration": 0.20922482013702393,
+    "startedUtc": "2026-10-12T00:00:22.0151190Z",
+    "duration": 0.10232186317443848,
     "averageFps": 0.0,
     "minFps": 1000.0,
     "bodies": 92,

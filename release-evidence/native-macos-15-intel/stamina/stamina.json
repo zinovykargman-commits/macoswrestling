@@ -1,10 +1,10 @@
 {
-    "build": "0.4.4",
+    "build": "0.4.5",
     "engine": "6000.3.7f1",
     "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
     "graphics": "Null Device",
-    "startedUtc": "2026-10-11T22:12:17.1282870Z",
-    "duration": 0.203086256980896,
+    "startedUtc": "2026-10-12T00:00:02.3637720Z",
+    "duration": 0.2765469551086426,
     "averageFps": 0.0,
     "minFps": 1000.0,
     "bodies": 92,

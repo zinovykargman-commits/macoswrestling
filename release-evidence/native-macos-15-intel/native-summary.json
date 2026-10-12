@@ -2,6 +2,7 @@
   "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
   "architecture": "x86_64",
   "nativeStaminaChecks": 9,
+  "nativeScrambleChecks": 13,
   "nativePhysicsPassed": true,
   "graphicsTested": true,
   "privateInternetJoinTested": false,

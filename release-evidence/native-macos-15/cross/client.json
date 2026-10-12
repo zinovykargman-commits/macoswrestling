@@ -1,12 +1,12 @@
 {
-    "build": "0.4.4",
+    "build": "0.4.5",
     "engine": "6000.3.7f1",
     "hardware": "Apple M1 (Virtual) / 7168 MB",
     "graphics": "Apple Paravirtual device",
-    "startedUtc": "2026-10-11T22:12:25.5246740Z",
-    "duration": 57.35060501098633,
-    "averageFps": 42.19315719604492,
-    "minFps": 3.3671486377716066,
+    "startedUtc": "2026-10-12T00:00:31.0063000Z",
+    "duration": 57.3741340637207,
+    "averageFps": 33.69813919067383,
+    "minFps": 2.5346667766571047,
     "bodies": 92,
     "issues": 0,
     "screenWidth": 1600,
@@ -60,7 +60,7 @@
         {
             "name": "round_reset_stream",
             "passed": true,
-            "evidence": "epoch=1 â†’ 3"
+            "evidence": "epoch=1 â†’ 2"
         },
         {
             "name": "host_disconnect_returns_to_menu",
@@ -70,7 +70,7 @@
         {
             "name": "state_stream",
             "passed": true,
-            "evidence": "sent=0 received=1332"
+            "evidence": "sent=0 received=1320"
         },
         {
             "name": "network_finite",

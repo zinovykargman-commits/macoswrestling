@@ -1,12 +1,12 @@
 {
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "b74e23969ef2f3ceda954508e09a515379f72c6dda49a04ef1ca6d7691a9a1b7",
-      "size": 41017626
+      "sha256": "efecc7c8eb57643359fe79ab6dd643b66da778a2487cc68f9a9f814b6fa375cf",
+      "size": 41018921
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "c11d995fb19393e1c202e687bd66e63de081e3b1784583a36b3414681aaacd9c",
-      "size": 168185
+      "sha256": "ea33fd95d503988e2be7a35645bd75fc9f92fcd19b0f23658bf3072416824cc1",
+      "size": 169191
     }
   },
   "signingOnlyChanges": [
@@ -17,6 +17,6 @@
     "Contents/Frameworks/UnityPlayer.dylib",
     "Contents/Frameworks/libmonobdwgc-2.0.dylib"
   ],
-  "nativeRun": 38179417080,
-  "nativeChecks": 54
+  "nativeRun": 38186318981,
+  "nativeChecks": 80
 }

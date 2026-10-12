@@ -1,12 +1,12 @@
 {
-    "build": "0.4.4",
+    "build": "0.4.5",
     "engine": "6000.3.7f1",
     "hardware": "Intel(R) Core(TM) i5-14400F / 16173 MB",
     "graphics": "NVIDIA GeForce RTX 5060",
-    "startedUtc": "2026-10-11T22:11:18.9003843Z",
-    "duration": 120.87199401855469,
-    "averageFps": 119.8480453491211,
-    "minFps": 10.468178749084473,
+    "startedUtc": "2026-10-11T23:59:31.0788200Z",
+    "duration": 114.60370635986328,
+    "averageFps": 119.78997802734375,
+    "minFps": 10.67192554473877,
     "bodies": 92,
     "issues": 0,
     "screenWidth": 1600,
@@ -75,7 +75,7 @@
         {
             "name": "round_reset_stream",
             "passed": true,
-            "evidence": "epoch=1 â†’ 3"
+            "evidence": "epoch=1 â†’ 2"
         },
         {
             "name": "network_survival",
@@ -85,12 +85,12 @@
         {
             "name": "state_stream",
             "passed": true,
-            "evidence": "sent=1332 received=0"
+            "evidence": "sent=1320 received=0"
         },
         {
             "name": "remote_input",
             "passed": true,
-            "evidence": "received=2133"
+            "evidence": "received=1699"
         },
         {
             "name": "network_finite",

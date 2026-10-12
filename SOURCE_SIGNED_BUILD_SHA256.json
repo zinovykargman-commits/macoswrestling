@@ -1,6 +1,6 @@
 {
-  "GRIP BREAK.app/Contents/_CodeSignature/CodeResources": "b459773bcf96397f93768050693fecaa131fbbb859e868771c9d47b445a69767",
-  "GRIP BREAK.app/Contents/MacOS/GRIP BREAK": "0b65d8b15889f781e23107b9834c755fe69c55d88b33db7f481761abd8259815",
+  "GRIP BREAK.app/Contents/_CodeSignature/CodeResources": "ebd19d316e5a98eeb38d8b00f2a2eb59edd0f8a10e860011a0748518018589c7",
+  "GRIP BREAK.app/Contents/MacOS/GRIP BREAK": "d75522e3b1a6177ec7b60bfc9732ec490195d10132f0351bda2055a8df6eacf9",
   "GRIP BREAK.app/Contents/Resources/DefaultPreferences.plist": "8209cedc0c58aef6ff98299a41ee742e4bdb043180c7ddf23ca63e031bb65e63",
   "GRIP BREAK.app/Contents/Resources/MainMenu.nib/keyedobjects.nib": "1fae5b7c6ee9b17a767b1636867a41b3e44eaf8f654b1c5e2cafa3261463104d",
   "GRIP BREAK.app/Contents/Resources/MainMenu.nib/designable.nib": "57188221ba9dc889be4c9e03f0c867bce820726491e32a2fa4928681f006f308",
@@ -25,7 +25,7 @@
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.SpriteShapeModule.dll": "ddc656a50db346ba99bb15848b5eaec4cb31cf7bb80df4c9c1cc3a7df0639494",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll": "e3ad3eb6a5a11fbbc4de7cdb869f6e1027f4732b0dfbaab07e739ce59c248386",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/System.Net.Http.dll": "72a0374ac199447c449af0f01d3567b225f1aa3e84be280d635051ddd5afa371",
-  "GRIP BREAK.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll": "d8542aa7d87f5b0fcd5d867d220ac76ce925111ef86a7acd72d6965d271f6e55",
+  "GRIP BREAK.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll": "af6f68ca9b3f3a3b281b1f60ac8389dd54271b619356c53b0183b0a6cf216918",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.DSPGraphModule.dll": "e906cfd76c20be8dac773af005ecd006caf9d3dea2de8f66274d63d28f4e4a06",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.LocalizationModule.dll": "a3c9b98e918e40fc39b8422e7e029d456ab9dde0d4ea061e62bd769667841fcb",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll": "d134bc29b1f8d8ce0e64ae8a75af56f0ab645114290cd8dd5b6a90838c0de56b",
@@ -107,9 +107,9 @@
   "GRIP BREAK.app/Contents/Resources/Data/Managed/System.Core.dll": "d8ce5623804717c8f65d7a04902153973803248a897abe3bd5c4e9714882f274",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.HierarchyCoreModule.dll": "cbafef31b740c1ee2d594ac1c5c0b0ab83796d5d6799c9fdd128783b5500dcc7",
   "GRIP BREAK.app/Contents/Resources/Data/Managed/UnityEngine.VideoModule.dll": "0e3227e0b6a933a729bbbce4061b8b5ab80e7dc8e1ec16fea1169a146d49e63f",
-  "GRIP BREAK.app/Contents/Resources/Data/globalgamemanagers": "d07f707e26860257c4eca9ff073d13140d11c5bd57e8b65e945e4c4ad6f1da23",
+  "GRIP BREAK.app/Contents/Resources/Data/globalgamemanagers": "54d688fa0058500c9228eac73b0943bef2609726e0cb3ca70f449e52c6380694",
   "GRIP BREAK.app/Contents/Resources/Data/app.info": "45b07188db0036f5deb25d5a0590652d8576a3f267f7fc4cd7c1d27b11e62d2a",
-  "GRIP BREAK.app/Contents/Resources/Data/boot.config": "35eee3c46b0113500d9db7888f948efc48d74a6dda6a908bc536d135b96f8769",
+  "GRIP BREAK.app/Contents/Resources/Data/boot.config": "d724245e6a2e0e7ff5377eae012c6567c610238ebeecac9a942b312095b59d9a",
   "GRIP BREAK.app/Contents/Resources/Data/RuntimeInitializeOnLoads.json": "47985c0dc81a72d36ab35fd388ff486ad097cf4610d2d7d7a8756611e3fa09c4",
   "GRIP BREAK.app/Contents/Resources/Data/Resources/unity default resources": "b02466e29dcf4a1ea9eaba69b2ed943477fd18417b23213329d42407afe0acf0",
   "GRIP BREAK.app/Contents/Resources/Data/Resources/unity_builtin_extra": "8d9e2620338e66b564eb30ce4ea75e72512d0149110856b7e98d7ad9eb5f6cee",
@@ -141,5 +141,5 @@
   "GRIP BREAK.app/Contents/Frameworks/libmono-native.dylib": "9c5e69c13996c903714496a162f781ca4054c0313675bc69a225deeb755a8cf0",
   "GRIP BREAK.app/Contents/Frameworks/UnityPlayer.dylib": "75c6af7815768c809a09ac394a2f5da06aeb7a791c412854cfb47c6aed0e47a5",
   "GRIP BREAK.app/Contents/Frameworks/libmonobdwgc-2.0.dylib": "b22d940e04ba0b476d2c0379669eb6605a2e5b0a7bd7a95de35aaeaea3ad4a82",
-  "GRIP BREAK.app/Contents/Info.plist": "f8e5bbacccbef35ce05affc82454b7280c5c1d197dd2ce51d2221ef7d5d33e10"
+  "GRIP BREAK.app/Contents/Info.plist": "e5a7e107e5a88e94ec21a2e51781228c6ee209d55480b42e2e9b3d0fae57e300"
 }
