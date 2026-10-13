@@ -20,7 +20,10 @@ def run(flag,folder,report,graphics=False):
 try:
     run('stamina-test','stamina','stamina.json')
     run('scramble-test','scramble','scramble.json')
-    run('stance-test','stance','stance.json')
+    # Stance includes rendered live movement plus a nested prepared-grip
+    # fixture. Match the actual interactive Windows check rather than running
+    # this mixed visual/contact sequence with no render/interpolation frames.
+    run('stance-test','stance','stance.json',True)
     run('corner-test','corner','corner.json')
     run('top-control-test','top-control','top-control.json')
     run('hand-contact-test','hand-contact','hand-contact.json',True)
