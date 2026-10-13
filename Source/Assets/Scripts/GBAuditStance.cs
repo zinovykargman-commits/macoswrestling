@@ -20,7 +20,7 @@ public partial class GBAudit {
         app.ScriptedInputs[0]=new GBInput{az=1,flags=GBInput.Brace};
         // Scripted input is polled in Update before production FixedUpdate.
         // Exclude that delivery interval from sustained-held sampling.
-        float inputDeadline=Time.time+.25f;while(!a.command.Has(GBInput.Brace)&&Time.time<inputDeadline)yield return new WaitForFixedUpdate();
+        int stanceIssuedFrame=Time.frameCount;double stanceIssuedFixed=Time.fixedTimeAsDouble;yield return null;yield return new WaitForFixedUpdate();bool stanceInputDelivered=a.command.Has(GBInput.Brace)&&a.StandingStance&&Time.fixedTimeAsDouble>stanceIssuedFixed;
         float until=Time.time+1.2f,next=0,gap=0,minimumEnergy=energy;int accepted=0,frames=0,captures=0;
         while(Time.time<until){
             yield return new WaitForFixedUpdate();frames++;if(a.StandingStance&&a.command.Has(GBInput.Brace))accepted++;
@@ -36,7 +36,7 @@ public partial class GBAudit {
         Check("standing_ctrl_bends_both_anatomical_knees",left>20&&right>20&&left<120&&right<120,"actual knee flexion L/R="+left+"/"+right);
         Check("standing_ctrl_head_up_chest_forward",chest>.65f&&chest<.99f&&head>.90f,"chest/head upright dots="+chest+"/"+head);
         Check("standing_ctrl_both_boots_supported",leftGap<.025f&&rightGap<.025f&&leftGap>-.015f&&rightGap>-.015f,"actual boot clearance L/R="+leftGap+"/"+rightGap);
-        Check("standing_ctrl_is_free_and_not_ground_escape",minimumEnergy>=energy-.001f&&accepted==frames&&!a.PhysicallyDownForPin&&!a.Down&&a.ScrambleCooldown==0,"energy min="+minimumEnergy+" start="+energy+" accepted="+accepted+"/"+frames+" cooldown="+a.ScrambleCooldown);
+        Check("standing_ctrl_is_free_and_not_ground_escape",stanceInputDelivered&&minimumEnergy>=energy-.001f&&accepted==frames&&!a.PhysicallyDownForPin&&!a.Down&&a.ScrambleCooldown==0,"energy min="+minimumEnergy+" start="+energy+" accepted="+accepted+"/"+frames+" cooldown="+a.ScrambleCooldown+" actualInputDelivered="+stanceInputDelivered+" issuedFrame="+stanceIssuedFrame+" sampledFrame="+Time.frameCount);
         StanceCapture("stance-held-side");yield return null;
         float leftHand=Vector3.Dot(a.bodies[5].position-a.bodies[1].position,a.facing),rightHand=Vector3.Dot(a.bodies[8].position-a.bodies[1].position,a.facing);
         Check("stance_free_hands_guard_forward",leftHand>.12f&&rightHand>.12f&&a.GripCount==0,"actual hand forward offset L/R="+leftHand+"/"+rightHand+"; no mouse target or automatic grip");

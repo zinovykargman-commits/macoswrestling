@@ -59,8 +59,9 @@ public static class GBAuditHandContact {
             app.CaptureAt(Path.Combine(directory,"held-body-contact-front.png"),midpoint+new Vector3(.15f,.50f,1.45f),midpoint);
             app.CaptureAt(Path.Combine(directory,"held-body-contact-side.png"),midpoint+new Vector3(1.45f,.30f,.15f),midpoint);
         }
-        app.ScriptedInputs[0]=new GBInput{ax=1};yield return Wait(.15f);fit.RenderFrame(.02f);
-        check("released_grips_clear_visual_offset_immediately",a.GripCount==0&&fit.Correction(0)==Vector3.zero&&fit.Correction(1)==Vector3.zero,"normal button release leaves free arm aim untouched");
+        int releaseFrame=Time.frameCount;double releaseFixed=Time.fixedTimeAsDouble;app.ScriptedInputs[0]=new GBInput{ax=1};yield return null;yield return new WaitForFixedUpdate();
+        bool releaseDelivered=(a.command.flags&(GBInput.Left|GBInput.Right))==0&&Time.fixedTimeAsDouble>releaseFixed;int releasedGripCount=a.GripCount;bool releasedTargets=a.hands[0].target==null&&a.hands[1].target==null;fit.RenderFrame(.02f);
+        check("released_grips_clear_visual_offset_immediately",releaseDelivered&&releasedGripCount==0&&releasedTargets&&fit.Correction(0)==Vector3.zero&&fit.Correction(1)==Vector3.zero,"normal release after rendered inputpoll +completed physics step; command="+a.command.flags+" gripsBeforeRender="+releasedGripCount+" targetsClearBeforeRender="+releasedTargets+" correctionL/R="+fit.Correction(0)+"/"+fit.Correction(1)+" issuedFrame="+releaseFrame+" checkedFrame="+Time.frameCount+"; first render after actual release must clear both offsets");
         a.ResetTo(new Vector3(-.55f,.2f,0));fit.RenderFrame(.02f);
         check("round_reset_clears_hand_contact_visuals",fit.Correction(0)==Vector3.zero&&fit.Correction(1)==Vector3.zero&&!fit.ContactEligible(0)&&!fit.ContactEligible(1),"reset returns each render proxy to its real physical hand");
         check("hand_contact_no_runtime_issues",app.Issues.Count==0,string.Join("; ",app.Issues));
