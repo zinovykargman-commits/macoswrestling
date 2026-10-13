@@ -6,7 +6,9 @@ The near-contact hand fit is deliberately slight: at most 2.8 cm, applied only t
 
 The editable packed Blender master is authoring source. Its static Cycles hair shading can differ from the native game; native captures are the evidence for shipped appearance.
 
-The final native reports retain every failed scenario unchanged. VALIDATION.md and the current-validation-summary.json identify the actual remaining failures and totals after the final run. Earlier rejected builds and their failures are historical evidence, not current-source proof.
+Final Windows build f180 passed 412 of 413 assertions across 19 native reports, with zero runtime issues. The sole remaining failure is `walking_moves_with_alternating_physical_steps`: the legacy fixture measured 4.95 m of travel but did not detect both boot centers clearing its old raised-foot criterion; maximum sampled height difference was 0.024 m. The independent 20-check locomotion suite passed actual supported alternating steps and lower-shot motion. The manual standing pin exchange, every new feature check and all 32 host/client checks passed. The failed legacy report remains unchanged; this is not an all-assertions-passing claim.
+
+Earlier rejected f179 measured a normal supported Ctrl stance but missed an arbitrary 13 cm hip-drop threshold by 0.3 mm. Root approved an explicit 5 mm solver/contact tolerance in the final audit, retaining independent knee, head/chest, boot-support and free-cost checks; gameplay was unchanged. The f179 failed report and the earlier f178 client-render failure remain historical evidence, separately from current f180 results.
 
 Physical keyboard/controller events, independent-machine internet play, long human matches, balance and enjoyment require hands-on acceptance. Mac joins Windows-hosted invites and uses keyboard/mouse; Mac hosting/controllers and automatic replacement updates are outside the current package. Mac uses manual downloads and is not Developer ID signed or notarized. Hosted Mac-runner checks do not establish physical-Mac GPU performance.
 

@@ -18,7 +18,6 @@
       "GBAuditLocomotionQuality.cs",
       "GBAuditMomentum.cs",
       "GBAuditOverhaul.cs",
-      "GBAuditPin.cs",
       "GBAuditPinSpam.cs",
       "GBAuditRingRestart.cs",
       "GBAuditShotCamera.cs",
@@ -51,10 +50,20 @@
     ],
     "platformAdaptedScripts": [
       "GBApp.cs",
+      "GBAuditPin.cs",
       "GBKit.cs",
       "GBNetwork.cs",
       "GBUpdater.cs"
     ],
+    "auditOnlyAdaptedScripts": [
+      "GBAuditPin.cs"
+    ],
+    "auditFixtureChanges": [
+      "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
+      "Verify coincident endpoints under0.1mm and actual0.8m overload",
+      "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s"
+    ],
+    "productionGripPhysicsAndTimersByteIdentical": true,
     "windowsSourcePreserved": true,
     "nativeMacTested": false,
     "inputSourceHashes": {
@@ -469,7 +478,7 @@
     {
       "name": "shared_gameplay_matches_frozen_windows",
       "passed": true,
-      "evidence": "41 byte-identical shared scripts; platform differences explicitly listed in port evidence"
+      "evidence": "40 byte-identical shared scripts; platform differences explicitly listed in port evidence"
     },
     {
       "name": "shared_runtime_resources_match_frozen_windows",
@@ -524,13 +533,13 @@
   ],
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "d7fdf8122a587a415a0d51a38e537480874898b1d44119e910e377b90552ec13",
-      "size": 143276309
+      "sha256": "d7fa4e6aa988359ad2ec0c3ffceca9e4bb36625e79a4d5760e488af7799701f0",
+      "size": 143277118
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "8638a9e438bf721a8e08d3baa55615868cc8a8ac3b4dd9bce48057492d5c4b6d",
-      "size": 83128282
+      "sha256": "238cc7e98603339d3265599352a6a67152cb867a2dacfd461a5631a76c76f6b4",
+      "size": 83128994
     }
   },
-  "appBytes": 272394440
+  "appBytes": 272394952
 }

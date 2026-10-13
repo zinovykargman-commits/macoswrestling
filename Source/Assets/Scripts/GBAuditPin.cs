@@ -21,17 +21,19 @@ public static class GBAuditPin {
             b.Simulate(request);if(b.command.Has(GBInput.Brace))accepted++;
             yield return new WaitForSeconds(.02f);b.Simulate(new GBInput{az=-1,x=1});yield return new WaitForSeconds(.02f);
         }
-        check("jitter_clicks_cannot_repeat_scramble",accepted==1&&b.ScrambleCooldown>.3f,"accepted="+accepted+"/10 rapid presses; release recovery="+b.ScrambleCooldown);
+        check("jitter_clicks_cannot_repeat_scramble",accepted==1&&b.ScrambleCooldown>0&&!b.ScrambleReady,"accepted="+accepted+"/10 rapid presses; release recovery="+b.ScrambleCooldown);
         check("jitter_clicks_do_not_break_grip",a.GripCount==1&&!a.hands[0].releaseRequired,"prepared real grip survives repeated input edges");
         b.Simulate(request);check("holding_early_press_waits_for_recovery",!b.command.Has(GBInput.Brace),"early press is gated");
         yield return new WaitForSeconds(.45f);b.Simulate(request);check("held_scramble_resumes_after_recovery",b.command.Has(GBInput.Brace)&&b.ScrambleReady,"held key resumes after0.4s; no extra burst");
         b.stamina=0;b.Simulate(request);check("exhaustion_still_requires_1_2_seconds",b.ScrambleCooldown>1.19f&&!b.ScrambleReady,"remaining="+b.ScrambleCooldown);
         b.ResetTo(new Vector3(.5f,.28f,0));check("reset_clears_both_scramble_timers",b.ScrambleCooldown==0&&b.ScrambleReady,"new round restores control");
         a.ResetTo(new Vector3(-.5f,.28f,0));b.ResetTo(new Vector3(.5f,.28f,0));
-        var target=b.bodies[1].GetComponent<GBTarget>();Vector3 contact=target.GetComponent<Collider>().ClosestPoint(a.bodies[5].position);a.bodies[5].position=contact;Physics.SyncTransforms();a.Attach(0,target,contact);var grip=a.hands[0].joint;grip.enabled=false;
-        for(int n=0;n<48;n++)grip.SendMessage("FixedUpdate");check("unstrained_physical_hold_still_survives",a.GripCount==1,"production grip spring/strain evaluated with coincident contact endpoints");
-        b.bodies[1].position+=Vector3.right*.8f;Physics.SyncTransforms();for(int n=0;n<48&&a.GripCount>0;n++)grip.SendMessage("FixedUpdate");
-        check("real_physical_overload_can_still_break_hold",a.GripCount==0&&a.hands[0].releaseRequired,"real0.8m anchor separation breaks through strain, not a scramble key event");
+        foreach(var w in new[]{a,b})foreach(var rb in w.bodies)rb.transform.SetPositionAndRotation(rb.position,rb.rotation);Physics.SyncTransforms();
+        var target=b.bodies[1].GetComponent<GBTarget>();Vector3 contact=target.GetComponent<Collider>().ClosestPoint(a.bodies[5].position);a.bodies[5].position=contact;a.bodies[5].transform.SetPositionAndRotation(a.bodies[5].position,a.bodies[5].rotation);Physics.SyncTransforms();a.Attach(0,target,contact);var grip=a.hands[0].joint;grip.enabled=false;
+        float preparedGap=Vector3.Distance(grip.handBody.position+grip.handBody.rotation*grip.anchor,grip.connectedBody.position+grip.connectedBody.rotation*grip.connectedAnchor);
+        for(int n=0;n<48;n++)grip.SendMessage("FixedUpdate");check("unstrained_physical_hold_still_survives",a.GripCount==1&&preparedGap<.0001f,"production grip spring/strain evaluated with committed coincident endpoints; actualgap="+preparedGap);
+        b.bodies[1].position+=Vector3.right*.8f;b.bodies[1].transform.SetPositionAndRotation(b.bodies[1].position,b.bodies[1].rotation);Physics.SyncTransforms();float overloadGap=Vector3.Distance(grip.handBody.position+grip.handBody.rotation*grip.anchor,grip.connectedBody.position+grip.connectedBody.rotation*grip.connectedAnchor);for(int n=0;n<48&&a.GripCount>0;n++)grip.SendMessage("FixedUpdate");
+        check("real_physical_overload_can_still_break_hold",a.GripCount==0&&a.hands[0].releaseRequired&&overloadGap>.79f&&overloadGap<.81f,"real0.8m committed anchor separation breaks through strain, not a scramble key event; actualgap="+overloadGap);
         a.ResetTo(new Vector3(-.5f,.28f,0));b.ResetTo(new Vector3(.5f,.28f,0));Physics.simulationMode=oldMode;app.enabled=true;app.ReturnToMenu();check("scramble_patch_no_runtime_issues",app.Issues.Count==0,string.Join("; ",app.Issues));
     }
     public static IEnumerator StaminaPatch(GBApp app,Action<string,bool,string> check){

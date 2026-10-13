@@ -15,7 +15,6 @@
     "GBAuditLocomotionQuality.cs",
     "GBAuditMomentum.cs",
     "GBAuditOverhaul.cs",
-    "GBAuditPin.cs",
     "GBAuditPinSpam.cs",
     "GBAuditRingRestart.cs",
     "GBAuditShotCamera.cs",
@@ -48,10 +47,20 @@
   ],
   "platformAdaptedScripts": [
     "GBApp.cs",
+    "GBAuditPin.cs",
     "GBKit.cs",
     "GBNetwork.cs",
     "GBUpdater.cs"
   ],
+  "auditOnlyAdaptedScripts": [
+    "GBAuditPin.cs"
+  ],
+  "auditFixtureChanges": [
+    "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
+    "Verify coincident endpoints under0.1mm and actual0.8m overload",
+    "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s"
+  ],
+  "productionGripPhysicsAndTimersByteIdentical": true,
   "windowsSourcePreserved": true,
   "nativeMacTested": false,
   "inputSourceHashes": {
