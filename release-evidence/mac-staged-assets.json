@@ -2,12 +2,12 @@
   "version": "0.4.9",
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "d7fa4e6aa988359ad2ec0c3ffceca9e4bb36625e79a4d5760e488af7799701f0",
-      "size": 143277118
+      "sha256": "79070e037ec9e906a5634c1bc616b3bcd4102e9ebafe2c02f52ad036bcd22216",
+      "size": 143277505
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "238cc7e98603339d3265599352a6a67152cb867a2dacfd461a5631a76c76f6b4",
-      "size": 83128994
+      "sha256": "f27e90bcebf633bafabc9f94fd4ff4510163a6b4507d737dc15c317fb3cbd34e",
+      "size": 83129342
     }
   }
 }

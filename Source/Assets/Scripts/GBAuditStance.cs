@@ -56,8 +56,8 @@ public partial class GBAudit {
         }
         Neutral();yield return Wait(.9f);
         Check("stance_release_restores_standing",!a.StandingStance&&a.Root.position.y>lower+.13f&&a.ScrambleCooldown==0,"released hips="+a.Root.position.y+" cooldown="+a.ScrambleCooldown);
-        a.stamina=2;app.ScriptedInputs[0]=new GBInput{az=1,flags=GBInput.Brace};yield return Wait(.12f);
-        Check("standing_stance_available_when_exhausted",a.StandingStance&&a.command.Has(GBInput.Brace)&&a.ScrambleCooldown==0,"physical stance at starting stamina2 without a ground exhaustion timer");
+        a.stamina=2;var emptyStance=new GBInput{az=1,flags=GBInput.Brace};app.ScriptedInputs[0]=emptyStance;a.Simulate(emptyStance);
+        Check("standing_stance_available_when_exhausted",a.StandingStance&&a.command.Has(GBInput.Brace)&&a.ScrambleCooldown==0&&a.stamina>=2,"production Simulate at exact starting stamina2; accepted="+a.command.Has(GBInput.Brace)+" stance="+a.StandingStance+" cooldown="+a.ScrambleCooldown+" stamina="+a.stamina+" down="+a.Down+" physicallyDown="+a.PhysicallyDownForPin+" hips="+a.Root.position.y+"; held posture independently checked at full stamina");
         a.ResetTo(new Vector3(-1.5f,.28f,-1.2f));Neutral();yield return Wait(.8f);standing=a.Root.position.y;
         float shotEnergy=a.stamina;a.Shot();Check("lower_shot_cost_unchanged",Mathf.Abs(shotEnergy-a.stamina-12)<.001f&&a.Shooting,"same production Shot action cost12; no extra impulse");Neutral();
         float lowest=standing,minHead=10;until=Time.time+.68f;next=0;captures=0;

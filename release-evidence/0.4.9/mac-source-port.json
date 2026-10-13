@@ -19,7 +19,6 @@
     "GBAuditRingRestart.cs",
     "GBAuditShotCamera.cs",
     "GBAuditSprawl.cs",
-    "GBAuditStance.cs",
     "GBAuditThrowRegression.cs",
     "GBAuditTopControl.cs",
     "GBAuditUpdater.cs",
@@ -48,17 +47,21 @@
   "platformAdaptedScripts": [
     "GBApp.cs",
     "GBAuditPin.cs",
+    "GBAuditStance.cs",
     "GBKit.cs",
     "GBNetwork.cs",
     "GBUpdater.cs"
   ],
   "auditOnlyAdaptedScripts": [
-    "GBAuditPin.cs"
+    "GBAuditPin.cs",
+    "GBAuditStance.cs"
   ],
   "auditFixtureChanges": [
     "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
     "Verify coincident endpoints under0.1mm and actual0.8m overload",
-    "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s"
+    "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s",
+    "Invoke FixedUpdate on exact current grip via reflection; SendMessage incorrectly broadcasts to disabled pendingDestroy oldgrips",
+    "Check production exhausted standing Ctrl at exactstamina2 without frame-dependent inputdelivery/regen; full stamina live posture separately checked"
   ],
   "productionGripPhysicsAndTimersByteIdentical": true,
   "windowsSourcePreserved": true,

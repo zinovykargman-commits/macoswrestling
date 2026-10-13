@@ -22,7 +22,6 @@
       "GBAuditRingRestart.cs",
       "GBAuditShotCamera.cs",
       "GBAuditSprawl.cs",
-      "GBAuditStance.cs",
       "GBAuditThrowRegression.cs",
       "GBAuditTopControl.cs",
       "GBAuditUpdater.cs",
@@ -51,17 +50,21 @@
     "platformAdaptedScripts": [
       "GBApp.cs",
       "GBAuditPin.cs",
+      "GBAuditStance.cs",
       "GBKit.cs",
       "GBNetwork.cs",
       "GBUpdater.cs"
     ],
     "auditOnlyAdaptedScripts": [
-      "GBAuditPin.cs"
+      "GBAuditPin.cs",
+      "GBAuditStance.cs"
     ],
     "auditFixtureChanges": [
       "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
       "Verify coincident endpoints under0.1mm and actual0.8m overload",
-      "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s"
+      "Verify jitter accepted once and positive active recovery; do not assume slow frame waits leave0.3s",
+      "Invoke FixedUpdate on exact current grip via reflection; SendMessage incorrectly broadcasts to disabled pendingDestroy oldgrips",
+      "Check production exhausted standing Ctrl at exactstamina2 without frame-dependent inputdelivery/regen; full stamina live posture separately checked"
     ],
     "productionGripPhysicsAndTimersByteIdentical": true,
     "windowsSourcePreserved": true,
@@ -478,7 +481,7 @@
     {
       "name": "shared_gameplay_matches_frozen_windows",
       "passed": true,
-      "evidence": "40 byte-identical shared scripts; platform differences explicitly listed in port evidence"
+      "evidence": "39 byte-identical shared scripts; platform differences explicitly listed in port evidence"
     },
     {
       "name": "shared_runtime_resources_match_frozen_windows",
@@ -533,13 +536,13 @@
   ],
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "d7fa4e6aa988359ad2ec0c3ffceca9e4bb36625e79a4d5760e488af7799701f0",
-      "size": 143277118
+      "sha256": "79070e037ec9e906a5634c1bc616b3bcd4102e9ebafe2c02f52ad036bcd22216",
+      "size": 143277505
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "238cc7e98603339d3265599352a6a67152cb867a2dacfd461a5631a76c76f6b4",
-      "size": 83128994
+      "sha256": "f27e90bcebf633bafabc9f94fd4ff4510163a6b4507d737dc15c317fb3cbd34e",
+      "size": 83129342
     }
   },
-  "appBytes": 272394952
+  "appBytes": 272395464
 }

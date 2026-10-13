@@ -6,6 +6,8 @@ using System.Collections;
 // Prepared poses isolate rule geometry. Covers, escapes and the standing
 // exchange run the normal GBInput path: no Attach, forced count, or attack call.
 public static class GBAuditPin {
+    static readonly System.Reflection.MethodInfo currentGripTick=typeof(GBGrip).GetMethod("FixedUpdate",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+    static void TickCurrentGrip(GBGrip grip){currentGripTick.Invoke(grip,null);}
     public static IEnumerator ScramblePatch(GBApp app,Action<string,bool,string> check){
         Start(app);yield return null;app.enabled=false;var oldMode=Physics.simulationMode;Physics.simulationMode=SimulationMode.Script;
         var a=app.Wrestlers[0];var b=app.Wrestlers[1];
@@ -28,11 +30,12 @@ public static class GBAuditPin {
         b.stamina=0;b.Simulate(request);check("exhaustion_still_requires_1_2_seconds",b.ScrambleCooldown>1.19f&&!b.ScrambleReady,"remaining="+b.ScrambleCooldown);
         b.ResetTo(new Vector3(.5f,.28f,0));check("reset_clears_both_scramble_timers",b.ScrambleCooldown==0&&b.ScrambleReady,"new round restores control");
         a.ResetTo(new Vector3(-.5f,.28f,0));b.ResetTo(new Vector3(.5f,.28f,0));
-        foreach(var w in new[]{a,b})foreach(var rb in w.bodies)rb.transform.SetPositionAndRotation(rb.position,rb.rotation);Physics.SyncTransforms();
+        foreach(var w in new[]{a,b})foreach(var rb in w.bodies){rb.linearVelocity=rb.angularVelocity=Vector3.zero;rb.transform.SetPositionAndRotation(rb.position,rb.rotation);}Physics.SyncTransforms();
         var target=b.bodies[1].GetComponent<GBTarget>();Vector3 contact=target.GetComponent<Collider>().ClosestPoint(a.bodies[5].position);a.bodies[5].position=contact;a.bodies[5].transform.SetPositionAndRotation(a.bodies[5].position,a.bodies[5].rotation);Physics.SyncTransforms();a.Attach(0,target,contact);var grip=a.hands[0].joint;grip.enabled=false;
+        int pendingGripComponents=a.bodies[5].GetComponents<GBGrip>().Length;
         float preparedGap=Vector3.Distance(grip.handBody.position+grip.handBody.rotation*grip.anchor,grip.connectedBody.position+grip.connectedBody.rotation*grip.connectedAnchor);
-        for(int n=0;n<48;n++)grip.SendMessage("FixedUpdate");check("unstrained_physical_hold_still_survives",a.GripCount==1&&preparedGap<.0001f,"production grip spring/strain evaluated with committed coincident endpoints; actualgap="+preparedGap);
-        b.bodies[1].position+=Vector3.right*.8f;b.bodies[1].transform.SetPositionAndRotation(b.bodies[1].position,b.bodies[1].rotation);Physics.SyncTransforms();float overloadGap=Vector3.Distance(grip.handBody.position+grip.handBody.rotation*grip.anchor,grip.connectedBody.position+grip.connectedBody.rotation*grip.connectedAnchor);for(int n=0;n<48&&a.GripCount>0;n++)grip.SendMessage("FixedUpdate");
+        for(int n=0;n<48;n++)TickCurrentGrip(grip);check("unstrained_physical_hold_still_survives",a.GripCount==1&&preparedGap<.0001f,"exact current production grip spring/strain with committed coincident endpoints; actualgap="+preparedGap+" hand gripcomponents="+pendingGripComponents+"; disabled pendingDestroy oldcomponents excluded");
+        b.bodies[1].position+=Vector3.right*.8f;b.bodies[1].transform.SetPositionAndRotation(b.bodies[1].position,b.bodies[1].rotation);Physics.SyncTransforms();float overloadGap=Vector3.Distance(grip.handBody.position+grip.handBody.rotation*grip.anchor,grip.connectedBody.position+grip.connectedBody.rotation*grip.connectedAnchor);for(int n=0;n<48&&a.GripCount>0;n++)TickCurrentGrip(grip);
         check("real_physical_overload_can_still_break_hold",a.GripCount==0&&a.hands[0].releaseRequired&&overloadGap>.79f&&overloadGap<.81f,"real0.8m committed anchor separation breaks through strain, not a scramble key event; actualgap="+overloadGap);
         a.ResetTo(new Vector3(-.5f,.28f,0));b.ResetTo(new Vector3(.5f,.28f,0));Physics.simulationMode=oldMode;app.enabled=true;app.ReturnToMenu();check("scramble_patch_no_runtime_issues",app.Issues.Count==0,string.Join("; ",app.Issues));
     }
