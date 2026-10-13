@@ -1,23 +1,23 @@
 {
-  "version": "0.4.5",
+  "version": "0.4.8",
   "latestDownloadPageWorks": true,
   "passed": true,
   "assets": [
     {
       "name": "GRIP_BREAK-macOS.zip",
-      "sha256": "efecc7c8eb57643359fe79ab6dd643b66da778a2487cc68f9a9f814b6fa375cf",
-      "size": 41018921,
+      "sha256": "e14d61168c92505889952651a8f5c867eba239bcf2438a21b389afa8a55f976b",
+      "size": 144089149,
       "passed": true
     },
     {
       "name": "GRIP_BREAK-macOS-Source.zip",
-      "sha256": "ea33fd95d503988e2be7a35645bd75fc9f92fcd19b0f23658bf3072416824cc1",
-      "size": 169191,
+      "sha256": "24f639e8b0da8a0727dc2f263a7b421d55afb34411524156370bab744afdf08f",
+      "size": 85665429,
       "passed": true
     },
     {
       "name": "GRIP_BREAK-macOS-SHA256.txt",
-      "sha256": "71d5c2cd5a2230c81185673ce5293d70b2a1e9ea561c513950eddf958d1fe08d",
+      "sha256": "a8012a51d95b975623eea53b5759c04bb443e94fad957c6fd0bf9a99bd532089",
       "size": 183,
       "passed": true
     }

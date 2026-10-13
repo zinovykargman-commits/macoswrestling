@@ -1,0 +1,11 @@
+{
+  "version": "0.4.8",
+  "run": 38328342765,
+  "inspected": [
+    "native-macos-15/appearance/appearance-front.png",
+    "native-macos-15/appearance/appearance-back.png",
+    "native-macos-15-intel/appearance/appearance-side.png",
+    "native-macos-15-intel/gym/gym-gameplay.png"
+  ],
+  "observations": "Native Metal images retain current Windows geometry/materials and gym placement. User-deferred shoulder/relaxed-arm defects remain. Screenshots establish inspected views only; physical Mac frame rate and full animation coverage remain unverified."
+}

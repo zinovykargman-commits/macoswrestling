@@ -1,12 +1,13 @@
 {
+  "version": "0.4.8",
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "efecc7c8eb57643359fe79ab6dd643b66da778a2487cc68f9a9f814b6fa375cf",
-      "size": 41018921
+      "sha256": "e14d61168c92505889952651a8f5c867eba239bcf2438a21b389afa8a55f976b",
+      "size": 144089149
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "ea33fd95d503988e2be7a35645bd75fc9f92fcd19b0f23658bf3072416824cc1",
-      "size": 169191
+      "sha256": "24f639e8b0da8a0727dc2f263a7b421d55afb34411524156370bab744afdf08f",
+      "size": 85665429
     }
   },
   "signingOnlyChanges": [
@@ -17,6 +18,31 @@
     "Contents/Frameworks/UnityPlayer.dylib",
     "Contents/Frameworks/libmonobdwgc-2.0.dylib"
   ],
-  "nativeRun": 38186318981,
-  "nativeChecks": 80
+  "nativeRun": 38328650388,
+  "nativeChecks": 106,
+  "passedChecks": 104,
+  "unresolvedChecks": [
+    {
+      "architecture": "arm64",
+      "checks": [
+        {
+          "name": "gym_performance",
+          "passed": false,
+          "evidence": "native mean FPS=17.15809 minimum=8.835906 GPU=Apple Paravirtual device"
+        }
+      ]
+    },
+    {
+      "architecture": "x86_64",
+      "checks": [
+        {
+          "name": "gym_performance",
+          "passed": false,
+          "evidence": "native mean FPS=6.362648 minimum=3.554972 GPU=Apple Paravirtual device"
+        }
+      ]
+    }
+  ],
+  "screenshotsInspected": true,
+  "currentLiveInternetTested": false
 }

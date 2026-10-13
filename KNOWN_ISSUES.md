@@ -9,3 +9,7 @@ Two scripted gameplay scenarios remain inconsistent in the final build: the18-se
 A tiny light seam wrinkle may remain behind the shoulder in extreme raised poses. The editable Blender master reopens with all eight textures packed, but its static Cycles hair shading differs from the native game. Native screenshots are the evidence for the shipped characters.
 
 Mac0.4.8 carries the same released f167 gameplay and deferred issues. Native Mac/Metal evidence is recorded separately; Windows checks do not establish Mac behavior. Current0.4.8 live online was not rerun, although protocol12 is preserved. Long sessions and human balance acceptance remain unverified.
+
+## Current Mac verification limit
+
+Both macOS15 GitHub runner architectures use an Apple Paravirtual graphics device. The gym_performance benchmark failed on both (initial mean22.89 FPS on arm64 and6.29 FPS on Intel). Startup, stamina/scramble, model/skin/shoe and gym geometry checks passed with zero runtime issues. The failures remain in their raw reports; physical-Mac performance and current0.4.8 live internet play remain unverified.
