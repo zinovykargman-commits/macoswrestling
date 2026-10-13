@@ -1,0 +1,81 @@
+{
+    "build": "0.4.10",
+    "engine": "6000.3.7f1",
+    "hardware": "Apple M1 (Virtual) / 7168 MB",
+    "graphics": "Null Device",
+    "startedUtc": "2026-10-13T19:05:14.7915690Z",
+    "duration": 1.256733775138855,
+    "averageFps": 0.0,
+    "minFps": 1000.0,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "sustained_scramble_never_script_releases_hold",
+            "passed": true,
+            "evidence": "1.2s of production input steps; real grip retained without displacement/overload"
+        },
+        {
+            "name": "scramble_has_no_timed_escape_immunity",
+            "passed": true,
+            "evidence": "no automatic release, immunity or charged velocity kick"
+        },
+        {
+            "name": "jitter_clicks_cannot_repeat_scramble",
+            "passed": true,
+            "evidence": "accepted=1/10 rapid presses; release recovery=0.3728191"
+        },
+        {
+            "name": "jitter_clicks_do_not_break_grip",
+            "passed": true,
+            "evidence": "prepared real grip survives repeated input edges"
+        },
+        {
+            "name": "holding_early_press_waits_for_recovery",
+            "passed": true,
+            "evidence": "early press is gated"
+        },
+        {
+            "name": "held_scramble_resumes_after_recovery",
+            "passed": true,
+            "evidence": "held key resumes after0.4s; no extra burst"
+        },
+        {
+            "name": "exhaustion_still_requires_1_2_seconds",
+            "passed": true,
+            "evidence": "remaining=1.2"
+        },
+        {
+            "name": "reset_clears_both_scramble_timers",
+            "passed": true,
+            "evidence": "new round restores control"
+        },
+        {
+            "name": "unstrained_physical_hold_still_survives",
+            "passed": true,
+            "evidence": "exact current production grip spring/strain with committed coincident endpoints; actualgap=0 hand gripcomponents=2; disabled pendingDestroy oldcomponents excluded"
+        },
+        {
+            "name": "real_physical_overload_can_still_break_hold",
+            "passed": true,
+            "evidence": "real0.8m committed anchor separation breaks through strain, not a scramble key event; actualgap=0.8"
+        },
+        {
+            "name": "scramble_patch_no_runtime_issues",
+            "passed": true,
+            "evidence": ""
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

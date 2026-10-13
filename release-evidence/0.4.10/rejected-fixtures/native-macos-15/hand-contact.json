@@ -1,0 +1,71 @@
+{
+    "build": "0.4.9",
+    "engine": "6000.3.7f1",
+    "hardware": "Apple M1 (Virtual) / 7168 MB",
+    "graphics": "Apple Paravirtual device",
+    "startedUtc": "2026-10-13T18:43:16.2066810Z",
+    "duration": 4.30131196975708,
+    "averageFps": 7.152082920074463,
+    "minFps": 1.9776297807693482,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 1600,
+    "screenHeight": 656,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "hand_contact_samples_authored_palms",
+            "passed": true,
+            "evidence": "actual authored palm/finger vertices sampled L/R=128/128"
+        },
+        {
+            "name": "free_hands_have_no_visual_contact_offset",
+            "passed": true,
+            "evidence": "neutral/free aim stays at actual interpolated physical hands"
+        },
+        {
+            "name": "contact_fit_uses_actual_manual_body_hold",
+            "passed": true,
+            "evidence": "normal mouse-button inputs acquired held frames=26; nearby rendered-palm frames=24; no Attach or posed arms in this fixture"
+        },
+        {
+            "name": "hand_visual_adjustment_is_small_and_rotation_exact",
+            "passed": true,
+            "evidence": "max shown offset=0.02799981 m, limit0.028m; physical wrist rotation difference=0"
+        },
+        {
+            "name": "nearby_palm_closes_existing_contact_gap",
+            "passed": true,
+            "evidence": "best sampled gap improvement=0.02799988 m; best shown sample gap=0.02765322 m; actual close-up inspection still required"
+        },
+        {
+            "name": "render_contact_adds_no_physics_or_force",
+            "passed": true,
+            "evidence": "render pass preserves all15 actual rigid transforms and accumulated forces; registry92"
+        },
+        {
+            "name": "released_grips_clear_visual_offset_immediately",
+            "passed": false,
+            "evidence": "normal button release leaves free arm aim untouched"
+        },
+        {
+            "name": "round_reset_clears_hand_contact_visuals",
+            "passed": true,
+            "evidence": "reset returns each render proxy to its real physical hand"
+        },
+        {
+            "name": "hand_contact_no_runtime_issues",
+            "passed": true,
+            "evidence": ""
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

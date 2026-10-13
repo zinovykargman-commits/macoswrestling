@@ -1,6 +1,6 @@
 # GRIP BREAK for Mac — 0.4.10
 
-Extract GRIP_BREAK-macOS.zip, then open GRIP BREAK.app. Universal Intel and Apple Silicon; macOS 12 or later. Your friend does not need Unity. Use a mouse with separate left/right buttons.
+**[Download the Mac game](https://github.com/zinovykargman-commits/macoswrestling/releases/latest)**. Extract GRIP_BREAK-macOS.zip, then open GRIP BREAK.app. Universal Intel and Apple Silicon; macOS 12 or later. Your friend does not need Unity. Use a mouse with separate left/right buttons.
 
 Private online: your Windows friend hosts, copies the complete invite link and sends it. Paste it into PRIVATE ONLINE, JOIN FRIEND, then READY UP. Both ready; the Windows host starts. Keyboard/mouse, AI local and joining Windows-hosted private matches are included. Mac invite hosting/controllers are not included. Same 92-body protocol 12; both players should use 0.4.10.
 
@@ -14,5 +14,6 @@ Pin chest-down or back-down with both actual shoulders grounded for 2.5 seconds;
 
 GET LATEST MAC VERSION opens the latest Mac release. Download and replace the app manually; automatic installation is not included.
 
-Built with Unity 6000.3.7f1, universal Mono/Metal. Fresh native Mac signing/graphics/gameplay evidence is pending and recorded separately by the publisher; Windows checks do not prove Mac behavior. The prior 0.4.8 virtual-GPU runners had frame-rate failures; physical-Mac performance and current live internet play remain unverified. No Apple Developer ID signing or notarization is claimed. macOS may require Apple's per-app Open Anyway flow: https://support.apple.com/en-us/102445 . Do not disable Gatekeeper globally. The ZIP retains executable permissions.
+Native macOS 15 Intel and Apple Silicon startup, gameplay, gym geometry and appearance checks passed; actual screenshots were inspected (300/302 total assertions). The gym frame-rate benchmark failed on 2 virtual graphics runner(s); actual FPS and failures are preserved in raw reports. Physical-Mac performance remains unverified. Current 0.4.10 live internet play is untested. See VALIDATION.md.
 
+Built with Unity 6000.3.7f1. Local ad-hoc signatures are verified on both architectures. The app is not Apple Developer ID signed or notarized; macOS may require the per-app Open Anyway flow: https://support.apple.com/en-us/102445 .

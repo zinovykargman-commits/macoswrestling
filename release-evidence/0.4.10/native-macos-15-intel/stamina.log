@@ -1,0 +1,39 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.428 seconds
+- Finished resetting the current domain, in  0.007 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 1.010069 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK opponent_brace_does_not_add_cost_1_hands_hold PASS normal=1.999512 resisting=1.999512 expected=2 stamina/s; production Simulate and actual manual joints
+GRIP_CHECK opponent_brace_does_not_add_cost_1_hands_lift PASS normal=28.00049 resisting=28.00049 expected=28 stamina/s; production Simulate and actual manual joints
+GRIP_CHECK opponent_brace_does_not_add_cost_2_hands_hold PASS normal=3.999023 resisting=3.999023 expected=4 stamina/s; production Simulate and actual manual joints
+GRIP_CHECK opponent_brace_does_not_add_cost_2_hands_lift PASS normal=30 resisting=30 expected=30 stamina/s; production Simulate and actual manual joints
+GRIP_CHECK held_brace_spends_only_defender_stamina PASS actually held defender brace cost=7.000122
+GRIP_CHECK released_grips_allow_recovery PASS recovery=19.00085/s
+GRIP_CHECK free_standing_Ctrl_does_not_spend_scramble_stamina PASS unheld standing Ctrl stamina=80 -> 80.07917; held defensive brace cost tested separately
+GRIP_CHECK stamina_patch_no_runtime_issues PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED stamina.json
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

@@ -1,0 +1,34 @@
+{
+  "version": "0.4.9",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "architecture": "x86_64",
+  "nativePhysicsPassed": false,
+  "graphicsTested": false,
+  "privateInternetJoinTested": false,
+  "reports": [
+    {
+      "file": "stamina/stamina.json",
+      "checks": 10,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "scramble/scramble.json",
+      "checks": 13,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "stance/stance.json",
+      "checks": 32,
+      "failed": 1,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    }
+  ],
+  "unresolvedChecks": [],
+  "nativeChecks": 55,
+  "passedChecks": 54
+}

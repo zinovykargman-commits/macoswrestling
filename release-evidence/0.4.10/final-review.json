@@ -1,0 +1,36 @@
+{
+  "version": "0.4.10",
+  "nativeRun": 38451841211,
+  "approved": true,
+  "nativeAssertions": 302,
+  "passedAssertions": 300,
+  "unresolved": [
+    "gym_performance on both Apple Paravirtual graphics devices"
+  ],
+  "rootReviewed": [
+    "native-macos-15/appearance/appearance-front.png",
+    "native-macos-15/appearance/appearance-back.png",
+    "native-macos-15/appearance/arms-overhead-side.png",
+    "native-macos-15/hand-contact/held-body-contact-front.png",
+    "native-macos-15/stance/stance-held-side.png",
+    "native-macos-15/ui/menu.png",
+    "native-macos-15-intel/ui/menu.png",
+    "native-macos-15-intel/appearance/arms-overhead-back.png"
+  ],
+  "specialistReviewed": [
+    "native-macos-15-intel/ui/menu.png",
+    "native-macos-15-intel/appearance/appearance-front.png",
+    "native-macos-15-intel/appearance/appearance-back.png",
+    "native-macos-15-intel/appearance/arms-overhead-side.png",
+    "native-macos-15-intel/appearance/arms-overhead-back.png",
+    "native-macos-15-intel/stance/stance-held-side.png",
+    "native-macos-15-intel/hand-contact/held-body-contact-front.png"
+  ],
+  "visualDecision": "Actual native images show no new Mac-specific regression from approved Windows f180. Supported standing Ctrl, indoor menu and existing shape improvements inspected. Prepared overhead poses are visual fixtures, not gameplay flight.",
+  "remainingCosmetics": [
+    "small raised-arm trim folds/wisps",
+    "palms not fully flush and colored grip/aim ribbons visible in contact poses"
+  ],
+  "physicalMacPerformanceTested": false,
+  "independentMachineInternetTested": false
+}

@@ -1,0 +1,41 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.068 seconds
+- Finished resetting the current domain, in  0.001 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.250541 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK supported_hips_improve_real_top_pressure PASS same victim/grips: supported low leverage/load=1.18/82.6 poor raised position=0.9/63; eligibility remains viable
+GRIP_CHECK real_hip_position_changes_shoulder_pressure PASS no move command; left/right actual hip bias=-0.16875/0.16875
+GRIP_CHECK movement_still_steers_existing_weight PASS supported neutral leverage=1.18 movement bias=1/-1; baseline preload retained
+GRIP_CHECK top_load_remains_bounded_equal_reaction PASS shoulder cap=649.9137 total chest pressure=959.8723 force+reaction=0; old650+310N budgets
+GRIP_CHECK one_arm_top_control_stays_weaker PASS same supported hip position one/two actual load=74.34/82.6
+GRIP_CHECK funded_bridge_can_overcome_top_weight PASS actual paid bridge upward=2004.445 resisted cover downward=49.55786 load=24.7789 energy=155.25 -> 155.1725; live shoulder escape separately tested by pin suite
+GRIP_CHECK release_ends_top_pressure_immediately PASS releaseC actual incremental load=0 force=(0.00, 0.00, 0.00)
+GRIP_CHECK top_control_runtime_clean PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED top-control.json
+Thread 0x16e48b000 may have been prematurely finalized
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Thread 0x16d4ef000 may have been prematurely finalized
