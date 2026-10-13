@@ -1,0 +1,3 @@
+# Gym material provenance
+
+Photographed PBR textures from Poly Haven, CC0: rubber_tiles, painted_plaster_wall, leather_red_02, fabric_pattern_07, concrete_floor_02 and wood_floor_worn. Source: https://polyhaven.com/license and https://polyhaven.com/a/<asset-name>. Color/normal/roughness maps downloaded at2k; channel-packed smoothness and printed canvas derived locally. Source download hashes retained in release evidence. Powered by Poly Haven. No runtime API calls. All gym meshes are locally authored scenery. The user authorized the realistic wrestlers; their separate CC0 provenance is recorded below.

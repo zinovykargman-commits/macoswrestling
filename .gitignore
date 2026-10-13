@@ -9,3 +9,4 @@ checks/
 *.zip
 *.csproj
 *.sln
+__pycache__/
