@@ -1,15 +1,16 @@
-# Known visual issue
+# GRIP BREAK 0.4.9 known limits
 
-When reaching both arms overhead while pitched forward, shoulder/upper-arm skin can crease or pinch unnaturally. The user explicitly deferred this deformation for the next update and requested shipping the current game. The limbs remain joined physically; this is an unresolved visual skinning issue, not a completed fix.
+Shoulder weights, render-only shoulder volume pivots, shared body/cloth deformation and elbow routing were refined and inspected in native neutral front/back/side, overhead and live-reach views. The original deferred arm defects have been addressed in this pass, but extreme raised/armpit poses can still fold the clothing trim. Small white wisps near Cobalt's neckline remain cosmetic. Do not interpret the checked poses as a guarantee of perfect anatomy in every possible physics configuration.
 
-The blue wrestler's arm can also look crooked in the relaxed stance. The user separately marked that arm alignment/shape issue for the next pass. Both supplied references are preserved locally in work/next-pass-arm-references; no arm fix is claimed in this release.
+The near-contact hand fit is deliberately slight: at most 2.8 cm, applied only to an already-held rival when the authored hand is near the anchor. It leaves physical hand rotation and forces unchanged. Fingers sit closer in the inspected contact view, but palms do not always lie completely flush against every curved body surface. The side/rear contact capture partially obscures the grip.
 
-Two scripted gameplay scenarios remain inconsistent in the final build: the18-second automatic shot/pull/pin sequence sometimes never grounds both shoulders, and an older walking fixture did not detect both boot centers rising4.5cm. Their failed reports are included. The dedicated20-check movement suite passed, as did actual manually acquired grounded pins, physical escapes, pin guards, stamina and32 host/client checks. Some natural pin setups and walking presentation still need human playtesting/polish; this is a build to try, not a claim that every scenario passed.
+The editable packed Blender master is authoring source. Its static Cycles hair shading can differ from the native game; native captures are the evidence for shipped appearance.
 
-A tiny light seam wrinkle may remain behind the shoulder in extreme raised poses. The editable Blender master reopens with all eight textures packed, but its static Cycles hair shading differs from the native game. Native screenshots are the evidence for the shipped characters.
+The final native reports retain every failed scenario unchanged. VALIDATION.md and the current-validation-summary.json identify the actual remaining failures and totals after the final run. Earlier rejected builds and their failures are historical evidence, not current-source proof.
 
-Mac0.4.8 carries the same released f167 gameplay and deferred issues. Native Mac/Metal evidence is recorded separately; Windows checks do not establish Mac behavior. Current0.4.8 live online was not rerun, although protocol12 is preserved. Long sessions and human balance acceptance remain unverified.
+Physical keyboard/controller events, independent-machine internet play, long human matches, balance and enjoyment require hands-on acceptance. Mac joins Windows-hosted invites and uses keyboard/mouse; Mac hosting/controllers and automatic replacement updates are outside the current package. Mac uses manual downloads and is not Developer ID signed or notarized. Hosted Mac-runner checks do not establish physical-Mac GPU performance.
 
-## Current Mac verification limit
 
-Both macOS15 GitHub runner architectures use an Apple Paravirtual graphics device. The gym_performance benchmark failed on both (initial mean22.89 FPS on arm64 and6.29 FPS on Intel). Startup, stamina/scramble, model/skin/shoe and gym geometry checks passed with zero runtime issues. The failures remain in their raw reports; physical-Mac performance and current0.4.8 live internet play remain unverified.
+## Mac 0.4.9 verification limit
+
+Fresh native Mac verification is pending. The previous 0.4.8 GitHub Mac runners used Apple Paravirtual GPUs and failed their frame-rate benchmarks. Mac defaults to Balanced graphics in this release; physical-Mac performance, current live internet play, long sessions and human balance remain unverified. Windows results do not establish Mac behavior.
