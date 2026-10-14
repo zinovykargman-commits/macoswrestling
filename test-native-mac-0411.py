@@ -1,5 +1,5 @@
 from pathlib import Path
-import subprocess,json,platform,sys,socket,time
+import subprocess,json,platform,sys,socket,time,shutil,tempfile,re,traceback
 assert sys.platform=='darwin'
 root=Path.cwd();exe=root/'stage/GRIP BREAK.app/Contents/MacOS/GRIP BREAK';checks=root/'checks';checks.mkdir()
 summary={'version':'0.4.11','platform':platform.platform(),'architecture':platform.machine(),'nativePhysicsPassed':False,'graphicsTested':False,'privateInternetJoinTested':False,'nativeUpdaterLocalTested':False,'sessionLifetimeTested':False,'reports':[],'unresolvedChecks':[]}
@@ -45,28 +45,46 @@ def session():
             try:child.wait(timeout=5)
             except subprocess.TimeoutExpired:child.kill();child.wait(timeout=5)
         for log in logs:log.close()
+failures=[]
+def attempt(name,operation):
+    try:return True,operation()
+    except Exception as error:
+        failures.append({'category':name,'type':type(error).__name__,'message':str(error)});traceback.print_exc();return False,None
 try:
-    run('mac-updater-test','mac-updater','mac-updater.json',timeout=180)
-    summary['nativeUpdaterLocalTested']=True
-    session()
-    run('ground-recovery-test','ground-recovery','ground-recovery.json')
-    run('stamina-test','stamina','stamina.json')
-    run('scramble-test','scramble','scramble.json')
-    # Stance includes rendered live movement plus a nested prepared-grip
-    # fixture. Match the actual interactive Windows check rather than running
-    # this mixed visual/contact sequence with no render/interpolation frames.
-    run('stance-test','stance','stance.json',True)
-    run('corner-test','corner','corner.json')
-    run('top-control-test','top-control','top-control.json')
-    run('hand-contact-test','hand-contact','hand-contact.json',True)
-    summary['nativePhysicsPassed']=True
-    run('appearance-test','appearance','appearance.json',True)
-    run('gym-test','gym','gym.json',True)
-    ui=run('menu-shot','ui','ui.json',True)
-    assert (checks/'ui/menu.png').exists()
-    assert any(n in ui['graphics'] for n in ('Metal','Apple','Intel','AMD')),ui['graphics']
-    summary['graphicsTested']=True;summary['graphicsDevice']=ui['graphics']
+    ok,_=attempt('mac-updater',lambda:run('mac-updater-test','mac-updater','mac-updater.json',timeout=180));summary['nativeUpdaterLocalTested']=ok
+    attempt('session-lifetime',session)
+    physics=[]
+    for flag,folder,report,graphics in (
+        ('ground-recovery-test','ground-recovery','ground-recovery.json',False),
+        ('stamina-test','stamina','stamina.json',False),
+        ('scramble-test','scramble','scramble.json',False),
+        ('stance-test','stance','stance.json',True),
+        ('corner-test','corner','corner.json',False),
+        ('top-control-test','top-control','top-control.json',False),
+        ('hand-contact-test','hand-contact','hand-contact.json',True)):
+        ok,_=attempt(folder,lambda flag=flag,folder=folder,report=report,graphics=graphics:run(flag,folder,report,graphics));physics.append(ok)
+    summary['nativePhysicsPassed']=all(physics)
+    attempt('appearance',lambda:run('appearance-test','appearance','appearance.json',True))
+    attempt('gym',lambda:run('gym-test','gym','gym.json',True))
+    def menus():
+        ui=run('menu-shot','ui','ui.json',True)
+        assert (checks/'ui/menu.png').exists() and any(n in ui['graphics'] for n in ('Metal','Apple','Intel','AMD')),ui['graphics']
+        summary['graphicsDevice']=ui['graphics'];return ui
+    ok,_=attempt('ui',menus);summary['graphicsTested']=ok
+    assert not failures,failures
+
 finally:
+    fixture=checks/'mac-updater/mac-updater-fixture-root.txt'
+    if fixture.exists():
+        owned=Path(fixture.read_text().strip()).resolve();owned.relative_to(Path(tempfile.gettempdir()).resolve())
+        assert re.fullmatch(r'GRIP_BREAK-MacUpdaterAudit-[0-9a-f]{32}',owned.name) and (owned/'disposable-owned.txt').read_text().strip()==owned.name
+        for job in owned.glob('.GRIP_BREAK-update-*'):
+            assert not job.is_symlink() and re.fullmatch(r'\.GRIP_BREAK-update-[0-9a-f]{32}',job.name)
+            dest=checks/'mac-updater/jobs'/job.name;dest.mkdir(parents=True,exist_ok=True)
+            for name in ('install.log','update-job.json','result','restart-started','restart-ok','install.sh'):
+                source=job/name
+                if source.is_file() and not source.is_symlink():shutil.copy2(source,dest/name)
+    summary['functionalFailures']=failures
     summary['nativeChecks']=sum(r['checks'] for r in summary['reports'])
     summary['passedChecks']=sum(r['checks']-r['failed'] for r in summary['reports'])
     (checks/'native-summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))

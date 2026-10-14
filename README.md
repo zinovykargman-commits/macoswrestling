@@ -6,7 +6,7 @@ Private online: your Windows friend hosts, copies the complete invite link and s
 
 WASD move, mouse aims arms, left/right clicks hold each grip; release that click to let go. Shift sprint, Space jump, Q forward shot (grab manually), E sprawl, R lift, C pin. Hold Ctrl standing to lower into a normal wrestling stance, without scramble stamina cost. On the ground Ctrl + move bridges/rolls and costs stamina. F1 controls, F11 fullscreen (Fn may be needed), Escape pause/back. Controls can be changed in Keybinds. X shove/tackle/throw buttons are removed.
 
-This version carries the frozen Windows f185 gameplay/assets, including the slightly lower Q shot, arm shape/skinning/IK refinements and indoor menu camera. Settings offers High, Balanced and Performance graphics; Mac starts on Balanced. These presets change lighting/edges, not physics or model detail. No claim that every arm pose is visually perfect; see KNOWN_ISSUES.md.
+This version carries the frozen Windows f186 gameplay/assets, including the slightly lower Q shot, arm shape/skinning/IK refinements and indoor menu camera. Settings offers High, Balanced and Performance graphics; Mac starts on Balanced. These presets change lighting/edges, not physics or model detail. No claim that every arm pose is visually perfect; see KNOWN_ISSUES.md.
 
 Online rooms now remain connected across match results, rematch and the LOBBY menu action; LEAVE SESSION intentionally disconnects. Two-process native Mac verification is pending. Game quit cleanup and contact rendering performance changes match Windows.
 
