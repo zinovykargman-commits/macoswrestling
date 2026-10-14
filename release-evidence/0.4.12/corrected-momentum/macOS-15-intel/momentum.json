@@ -1,0 +1,131 @@
+{
+    "build": "0.4.12",
+    "engine": "6000.3.7f1",
+    "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
+    "graphics": "Null Device",
+    "startedUtc": "2026-10-14T22:28:48.7179230Z",
+    "duration": 94.12884521484375,
+    "averageFps": 29.815776824951173,
+    "minFps": 4.257504463195801,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "momentum_shot_actual_runup",
+            "passed": true,
+            "evidence": "standing approach=-0.05 running=4.61 m/s from physical massweighted velocities"
+        },
+        {
+            "name": "momentum_shots_contact",
+            "passed": true,
+            "evidence": "standing/running balance loss=39.6/54.3 physical collision impulse=9.6/14.8 Ns; target peak m/s=2.43/4.21"
+        },
+        {
+            "name": "fast_shot_has_stronger_physical_result",
+            "passed": true,
+            "evidence": "standing/running target peak=2.43/4.21 m/s; forward travel=0.99/2.29 m; contact approach=2.65/5.47 m/s impact pressure=0.291/0.451 s; impact should carry into readable movement before recovery"
+        },
+        {
+            "name": "momentum_q_never_auto_grabs",
+            "passed": true,
+            "evidence": "maximum hands standing/running/braced=0/0/0; Q supplied without either hand button"
+        },
+        {
+            "name": "brace_reduces_running_shot",
+            "passed": true,
+            "evidence": "unbraced/braced target peak=4.21/2.90 forward=2.29/1.84 feedback=Shot resisted - change angle"
+        },
+        {
+            "name": "sprawl_reduces_running_shot",
+            "passed": true,
+            "evidence": "unbraced/sprawled balance loss=54.3/0.0 pressure=0.45/0.00 s; target peak=4.21/1.00"
+        },
+        {
+            "name": "shot_contact_budget_is_one",
+            "passed": true,
+            "evidence": "paid Q impact counts standing/running/braced/sprawled=1/1/1/0; no duplicate per collider or stay callback"
+        },
+        {
+            "name": "forward_jump_has_earned_collision",
+            "passed": true,
+            "evidence": "paid normal jump airborne=True actual core collision count=1 impulse=19.6 Ns; approach=2.79 m/s; launch diagnostics before Space stamina=147.90 grounded=True Down=False pinControlled=False jumpWindow=False gap=1.34 approach=4.59 feet=0.39/0.37 ; first processed Space stamina=140.02 grounded=True Down=False window=True velocity=(4.58, 3.65, 0.00) inputflags=8"
+        },
+        {
+            "name": "jump_momentum_beats_stationary_touch",
+            "passed": true,
+            "evidence": "stationary/jump opponent peak=0.02/1.64 m/s travel=0.02/0.74 m balance loss=0.0/12.1"
+        },
+        {
+            "name": "brace_mitigates_jump_body_impact",
+            "passed": true,
+            "evidence": "neutral/braced loss=12.1/2.4 travel=0.74/0.49"
+        },
+        {
+            "name": "jump_one_contact_budget_no_auto_grab",
+            "passed": true,
+            "evidence": "normal Jump held after initial edge: impacts=0/1/1 hands=0/0/0; no attack injection or impulse injection"
+        },
+        {
+            "name": "hard_spin_is_physical_rotation",
+            "passed": true,
+            "evidence": "standing/spinning root yaw peak=0.03/8.51 rad/s from Rigidbody.angularVelocity"
+        },
+        {
+            "name": "spin_manual_grips_naturally_acquired",
+            "passed": true,
+            "evidence": "standing/spinning natural hands=1/1 reach delay=0.15/0.08 seconds; no Attach calls"
+        },
+        {
+            "name": "recent_spin_carries_grabbed_opponent",
+            "passed": true,
+            "evidence": "standing/spin velocity change=0.324/0.249 m/s; whole-body translational/rotational energy gain=4.21/4.22 J; actual impulse=2.00/12.45 Ns. Requires >5Ns additional earned transfer and measured motion/energy above half the free-impulse response. The constraint spring and mat friction also contribute: a catch need not have greater net speed than a differently loaded stationary catch."
+        },
+        {
+            "name": "repeated_grip_fixture_reacquires",
+            "passed": true,
+            "evidence": "natural spin/release/regrab transitions=12 across twelve cycles / 18 seconds"
+        },
+        {
+            "name": "repeated_grip_fixture_stays_on_mat",
+            "passed": true,
+            "evidence": "root positions remained within±3.8m and above0.1m; ordinary approach only while separation>1.2m; final attacker=(0.51, 1.26, -2.10) defender=(-0.01, 1.25, -1.47)"
+        },
+        {
+            "name": "repeated_grips_keep_energy_bounded",
+            "passed": true,
+            "evidence": "max massweighted COM=0.38 horizontal=0.38 m/s; peak COM wrestler=PLAYER ONE root=(-0.49, 1.26, -2.00) velocity=(0.37, 0.04, 0.08) time=0.864 s; total kinetic energy peak=191.1 J time=3.680 s attacker=(-0.38, 1.27, -2.01) defender=(0.54, 1.25, -1.88); first/last 3s average=59.3/57.2 peak=188.7/184.6 J; limb peak diagnostic=7.04 m/s part=PLAYER ONE right hand time=1.047 s"
+        },
+        {
+            "name": "repeated_grip_momentum_settles_when_released",
+            "passed": true,
+            "evidence": "after three seconds with all actions released: max COM=0.01 m/s energy=0.0 J vs active late-window average=57.2 J"
+        },
+        {
+            "name": "momentum_bodies_connected_finite",
+            "passed": true,
+            "evidence": "all shots, forward jumps, spins and grips; max joint gap=0.0050 m missing=0 maximum body speed=11.32"
+        },
+        {
+            "name": "mac_momentum_clock_resolves_physics_inputs",
+            "passed": true,
+            "evidence": "unchanged240Hz; original maxDelta=0.3333333 audit maxDelta=0.01666667 simSeconds=46.36206 realSeconds=94.08498 renderedFrames=2800; all22 original assertions/durations retained"
+        },
+        {
+            "name": "momentum_no_runtime_issues",
+            "passed": true,
+            "evidence": ""
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

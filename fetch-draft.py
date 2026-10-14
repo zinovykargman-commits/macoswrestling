@@ -3,8 +3,8 @@ import json,os,urllib.request
 repository=os.environ['GITHUB_REPOSITORY'];token=os.environ['GH_TOKEN']
 headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','User-Agent':'GripBreak-Mac-Native-Check'}
 with urllib.request.urlopen(urllib.request.Request('https://api.github.com/repos/'+repository+'/releases',headers=headers),timeout=30) as r:releases=json.load(r)
-expected=json.loads(Path('release-evidence/mac-staged-assets.json').read_text(encoding='utf-8'));assert expected['version']=='0.4.12'
-release=next(r for r in releases if r['tag_name']=='v0.4.12')
+expected=json.loads(Path('release-evidence/mac-staged-assets.json').read_text(encoding='utf-8'));assert expected['version']=='0.4.13'
+release=next(r for r in releases if r['tag_name']=='v0.4.13')
 asset=next(a for a in release['assets'] if a['name']=='GRIP_BREAK-macOS.zip')
 headers['Accept']='application/octet-stream'
 class Redirect(urllib.request.HTTPRedirectHandler):

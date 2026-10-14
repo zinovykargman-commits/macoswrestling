@@ -1,0 +1,9 @@
+{
+    "originalMaximumDeltaTime": 0.3333333432674408,
+    "appliedMaximumDeltaTime": 0.01666666753590107,
+    "restoredMaximumDeltaTime": 0.3333333432674408,
+    "fixedDeltaTime": 0.004166666883975267,
+    "simulationSeconds": 46.28926086425781,
+    "realSeconds": 88.05252838134766,
+    "renderedFrames": 2881
+}
