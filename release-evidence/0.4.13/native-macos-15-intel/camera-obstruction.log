@@ -1,0 +1,60 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Unknown Display preferred device: Apple Paravirtual device (high power)
+Metal devices available: 1
+0: Apple Paravirtual device (high power)
+Using device Apple Paravirtual device (high power)
+Initializing Metal device caps: Apple Paravirtual device
+Mac GPU Family: 1
+Apple GPU Family: 0
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 1
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.270 seconds
+- Finished resetting the current domain, in  0.006 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 1.471762 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK camera_clear_orange-standing PASS camera=(3.10, 5.67, -5.80) target=(0.00, 1.87, 0.00) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_orange-standing PASS single owned-player view; viewport=(0.50, 0.50, 7.60)
+GRIP_CHECK camera_clear_orange-raised-center PASS camera=(3.10, 5.81, -5.80) target=(0.00, 3.89, 0.00) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_orange-raised-center PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_clear_orange-near-corner PASS camera=(-0.60, 5.67, -9.50) target=(-3.70, 1.87, -3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_orange-near-corner PASS single owned-player view; viewport=(0.50, 0.50, 7.60)
+GRIP_CHECK camera_clear_orange-raised-corner PASS camera=(6.80, 5.81, -2.10) target=(3.70, 3.89, 3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_orange-raised-corner PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_clear_orange-opposite-corner PASS camera=(-0.60, 5.81, -2.10) target=(-3.70, 3.89, 3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_orange-opposite-corner PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_clear_blue-standing PASS camera=(3.10, 5.67, -5.80) target=(0.00, 1.87, 0.00) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_blue-standing PASS single owned-player view; viewport=(0.50, 0.50, 7.60)
+GRIP_CHECK camera_clear_blue-raised-center PASS camera=(3.10, 5.81, -5.80) target=(0.00, 3.89, 0.00) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_blue-raised-center PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_clear_blue-near-corner PASS camera=(-0.60, 5.67, -9.50) target=(-3.70, 1.87, -3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_blue-near-corner PASS single owned-player view; viewport=(0.50, 0.50, 7.60)
+GRIP_CHECK camera_clear_blue-raised-corner PASS camera=(6.80, 5.81, -2.10) target=(3.70, 3.89, 3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_blue-raised-corner PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_clear_blue-opposite-corner PASS camera=(-0.60, 5.81, -2.10) target=(-3.70, 3.89, 3.70) structural bounds=45; actual capture below
+GRIP_CHECK camera_locked_blue-opposite-corner PASS single owned-player view; viewport=(0.50, 0.50, 6.85)
+GRIP_CHECK camera_structure_cached_once_per_world PASS cache builds=1;120 follow ticks do not scan renderers
+GRIP_CHECK camera_unchanged_gameplay_geometry PASS registered bodies=92;existing colliders=102;48 original rope bodies;camera creates no colliders
+GRIP_CHECK camera_obstruction_runtime_clean PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED camera-obstruction.json
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

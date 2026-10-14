@@ -1,0 +1,26 @@
+{
+    "build": "0.4.13",
+    "engine": "6000.3.7f1",
+    "hardware": "Apple M1 (Virtual) / 7168 MB",
+    "graphics": "Apple Paravirtual device",
+    "startedUtc": "2026-10-14T22:48:07.4224440Z",
+    "duration": 6.960360527038574,
+    "averageFps": 20.626876831054689,
+    "minFps": 9.1141357421875,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 1600,
+    "screenHeight": 656,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

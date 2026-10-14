@@ -1,6 +1,6 @@
 # GRIP BREAK for Mac — 0.4.13
 
-Extract GRIP_BREAK-macOS.zip, then open GRIP BREAK.app. Universal Intel and Apple Silicon; macOS 12 or later. Your friend does not need Unity. Use a mouse with separate left/right buttons.
+**[Download the Mac game](https://github.com/zinovykargman-commits/macoswrestling/releases/latest)**. Extract GRIP_BREAK-macOS.zip, then open GRIP BREAK.app. Universal Intel and Apple Silicon; macOS 12 or later. Your friend does not need Unity. Use a mouse with separate left/right buttons.
 
 Private online: your Windows friend hosts, copies the complete invite link and sends it. Paste it into PRIVATE ONLINE, JOIN FRIEND, then READY UP. Both ready; the Windows host starts. Keyboard/mouse, AI local and joining Windows-hosted private matches are included. Mac invite hosting/controllers are not included. Same 92-body protocol 12; both players should use 0.4.13.
 
@@ -16,5 +16,6 @@ Pin chest-down or back-down with both actual shoulders grounded for 2.5 seconds;
 
 CHECK FOR UPDATE checks the latest stable Mac release. UPDATE & RESTART downloads and verifies its SHA-256, ZIP members/CRC, executable permissions and native code signatures, then replaces only this app after it closes and restarts it. Put the app in a writable folder; no administrator prompt is used. Preferences stay outside the app. Versions0.4.10 and earlier need one manual upgrade to0.4.11 or newer. Updater production source is unchanged from0.4.11. Prior27/27 local native updater checks per architecture and Intel actual-public5/5 are historical evidence; ARM actual-public validation remained incomplete after hosted API quota failures. This release checks current bundle/version/signature without repeating those public experiments.
 
-Built with Unity 6000.3.7f1, universal Mono/Metal. Fresh native Mac signing/graphics/gameplay evidence is pending and recorded separately by the publisher; Windows checks do not prove Mac behavior. The prior 0.4.8 virtual-GPU runners had frame-rate failures; physical-Mac performance and current live internet play remain unverified. No Apple Developer ID signing or notarization is claimed. macOS may require Apple's per-app Open Anyway flow: https://support.apple.com/en-us/102445 . Do not disable Gatekeeper globally. The ZIP retains executable permissions.
+Native macOS15 Intel/Apple Silicon current GPU/geometry, camera, contact and menu checks passed; actual posed-skin images were inspected (102/102 total assertions). Literal physics source retains0.4.12 corrected momentum23/23 per architecture as historical baseline. Mac whole-game FPS was not measured. Native GPU render counters and actual posed-skin images establish current rendering behavior, not a physical-Mac FPS promise. Earlier0.4.11 virtual-GPU gym failures remain historical evidence; no old FPS benchmark was repeated. Live internet play remains untested. See VALIDATION.md.
 
+Built with Unity6000.3.7f1. Local ad-hoc signatures verified on both architectures; not Apple Developer ID signed/notarized. macOS may require the per-app Open Anyway flow: https://support.apple.com/en-us/102445 .

@@ -1,0 +1,19 @@
+{
+    "scope": "Current native full-scene counters; no FPS improvement claim; capture renders excluded",
+    "graphicsApi": "Metal",
+    "device": "Apple Paravirtual device",
+    "instancingSupported": true,
+    "countersValid": true,
+    "instancedCounterAvailable": false,
+    "frames": 90,
+    "registeredBodies": 92,
+    "chainLinks": 192,
+    "ductClamps": 25,
+    "uniqueLoopMeshes": 4,
+    "standardMaterials": 22,
+    "meanInstancedBatches": 0.0,
+    "meanBatches": 4045.0,
+    "meanDrawCalls": 4045.0,
+    "meanSetPassCalls": 2036.0,
+    "maximumInstancedBatches": 0
+}

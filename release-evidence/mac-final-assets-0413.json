@@ -1,0 +1,71 @@
+{
+  "version": "0.4.13",
+  "assets": {
+    "GRIP_BREAK-macOS.zip": {
+      "sha256": "befa7014d576b448fd1e98bdfe66b7a1c3a67c156ee3b0d0a7d8ca0e48f210cb",
+      "size": 143344059
+    },
+    "GRIP_BREAK-macOS-Source.zip": {
+      "sha256": "2aacf0c1b4cee72c52995b78717efce7006635292cab29e5e36d8a072ef97730",
+      "size": 83190481
+    }
+  },
+  "signingOnlyChanges": [
+    "Contents/_CodeSignature/CodeResources",
+    "Contents/MacOS/GRIP BREAK",
+    "Contents/Frameworks/libMonoPosixHelper.dylib",
+    "Contents/Frameworks/libmono-native.dylib",
+    "Contents/Frameworks/UnityPlayer.dylib",
+    "Contents/Frameworks/libmonobdwgc-2.0.dylib"
+  ],
+  "nativeRun": 38649826428,
+  "nativeChecks": 102,
+  "passedChecks": 102,
+  "unresolvedChecks": [
+    {
+      "architecture": "arm64",
+      "checks": []
+    },
+    {
+      "architecture": "x86_64",
+      "checks": []
+    }
+  ],
+  "screenshotsInspected": true,
+  "visualReviewEvidence": {
+    "version": "0.4.13",
+    "accepted": true,
+    "reviewer": "mac_049",
+    "nativeRun": 38649826428,
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "reviewedFiles": [
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/render-optimization/render-gym-forward.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/render-optimization/render-gym-back.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/camera-obstruction/camera-orange-raised-corner.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/camera-obstruction/camera-blue-opposite-corner.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/hand-contact/held-body-contact-front.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15/ui/menu.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/render-optimization/render-gym-forward.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/render-optimization/render-gym-back.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/camera-obstruction/camera-orange-raised-corner.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/camera-obstruction/camera-blue-opposite-corner.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/hand-contact/held-body-contact-front.png",
+      "C:/Users/zinov/Documents/Codex/2026-10-09/gi/work/mac-native/38649826428/native-macos-15-intel/ui/menu.png"
+    ],
+    "scope": "Actual High-quality native forward/back gym views, both-owner raised/corner views, held-contact posed skins and live menu on both architectures. GPU skins intact; no new collapse/stretch or roof/light occlusion of controlled wrestler in inspected views. Mat remains matte; station/rope layout and version/update/menu controls readable.",
+    "remainingLimits": [
+      "Prepared raised poses are camera fixtures, not a grounding/movement claim.",
+      "Existing singlet/armpit trim folds, nonflush palms and colored grip/aim ribbons remain unchanged cosmetic limits.",
+      "Physical-Mac FPS and live internet joining remain unverified."
+    ],
+    "currentChecksPerArchitecture": 51
+  },
+  "currentUpdaterBundleVersionSignatureChecked": true,
+  "nativeUpdaterLocalTested": false,
+  "unchangedUpdaterBaseline": "0.4.11 local27/27 each; Intel public5/5; ARM public incomplete/hosted quota",
+  "publicUpdaterTested": false,
+  "currentLiveInternetTested": false
+}
