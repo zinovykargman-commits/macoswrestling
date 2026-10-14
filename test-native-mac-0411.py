@@ -3,7 +3,7 @@ import subprocess,json,platform,sys,socket,time
 assert sys.platform=='darwin'
 root=Path.cwd();exe=root/'stage/GRIP BREAK.app/Contents/MacOS/GRIP BREAK';checks=root/'checks';checks.mkdir()
 summary={'version':'0.4.11','platform':platform.platform(),'architecture':platform.machine(),'nativePhysicsPassed':False,'graphicsTested':False,'privateInternetJoinTested':False,'nativeUpdaterLocalTested':False,'sessionLifetimeTested':False,'reports':[],'unresolvedChecks':[]}
-def run(flag,folder,report,graphics=False,timeout=timeout):
+def run(flag,folder,report,graphics=False,timeout=120):
     args=[str(exe)]
     if not graphics:args+=['-batchmode','-nographics']
     if flag=='mac-updater-test':args+=['--mac-updater-archive',str(root/'incoming/GRIP_BREAK-macOS.zip')]
