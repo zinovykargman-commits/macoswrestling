@@ -80,7 +80,7 @@ finally:
         assert re.fullmatch(r'GRIP_BREAK-MacUpdaterAudit-[0-9a-f]{32}',owned.name) and (owned/'disposable-owned.txt').read_text().strip()==owned.name
         for job in owned.glob('.GRIP_BREAK-update-*'):
             assert not job.is_symlink() and re.fullmatch(r'\.GRIP_BREAK-update-[0-9a-f]{32}',job.name)
-            dest=checks/'mac-updater/jobs'/job.name;dest.mkdir(parents=True,exist_ok=True)
+            dest=checks/'mac-updater/jobs'/job.name.lstrip('.');dest.mkdir(parents=True,exist_ok=True)
             for name in ('install.log','update-job.json','result','restart-started','restart-ok','install.sh'):
                 source=job/name
                 if source.is_file() and not source.is_symlink():shutil.copy2(source,dest/name)

@@ -1,0 +1,96 @@
+{
+    "build": "0.4.11",
+    "engine": "6000.3.7f1",
+    "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
+    "graphics": "Null Device",
+    "startedUtc": "2026-10-14T19:01:22.7766930Z",
+    "duration": 83.33504486083985,
+    "averageFps": 57.75825881958008,
+    "minFps": 3.959801197052002,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "session_authenticated_two_process_peer",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Menu epoch=0 score=0:0 targets=0 inputs=0 snapshots=0/2 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_first_result_and_automatic_reset_stream",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=MatchOver epoch=3 score=3:0 targets=0 inputs=0 snapshots=0/141 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_second_result_and_automatic_reset_stream",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=MatchOver epoch=3 score=3:0 targets=0 inputs=0 snapshots=0/141 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_three_wins_reach_match_results",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=MatchOver epoch=3 score=3:0 targets=0 inputs=0 snapshots=0/141 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_result_idle_and_host_rematch_survive",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Fighting epoch=4 score=0:0 targets=0 inputs=0 snapshots=0/361 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_menu_action_keeps_room_and_clears_ready",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=0 snapshots=0/366 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_input_sequence_survives_lobby",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=0 snapshots=0/366 status=Connected to LIFETIME HOST initial=1 current=2738"
+        },
+        {
+            "name": "client_lobby_idle_keeps_snapshots_and_monotonic_inputs",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=0 snapshots=0/692 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_same_room_ready_and_restart_stream",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Fighting epoch=5 score=0:0 targets=0 inputs=0 snapshots=0/731 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "client_host_lobby_transition_survives",
+            "passed": true,
+            "evidence": "role=Client connected=True phase=Menu epoch=5 score=0:0 targets=0 inputs=0 snapshots=0/736 status=Connected to LIFETIME HOST "
+        },
+        {
+            "name": "explicit_host_leave_returns_client_to_menu",
+            "passed": true,
+            "evidence": "role=Offline connected=False phase=Menu epoch=6 score=0:0 targets=0 inputs=0 snapshots=0/759 status=Friend disconnected: The connection was closed "
+        },
+        {
+            "name": "session_kept_same_transport_until_explicit_leave",
+            "passed": true,
+            "evidence": "same sessionId throughout round results, resets, rematch and both coordinated lobbies; no hidden reconnect"
+        },
+        {
+            "name": "session_manual_grip_cleanup_scope",
+            "passed": true,
+            "evidence": "actual normal aim/click input produced maximum held targets=3; no Attach, forced count or assertion of physically earned pins; result event was deliberately staged"
+        },
+        {
+            "name": "session_lifetime_finite_and_runtime_clean",
+            "passed": true,
+            "evidence": "finite real snapshot/physics state; issues="
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0000 m"
+        }
+    ]
+}

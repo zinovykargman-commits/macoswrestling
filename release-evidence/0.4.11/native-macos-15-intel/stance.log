@@ -1,0 +1,67 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Unknown Display preferred device: Apple Paravirtual device (high power)
+Metal devices available: 1
+0: Apple Paravirtual device (high power)
+Using device Apple Paravirtual device (high power)
+Initializing Metal device caps: Apple Paravirtual device
+Mac GPU Family: 1
+Apple GPU Family: 0
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 1
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.152 seconds
+- Finished resetting the current domain, in  0.004 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 3.786336 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK standing_ctrl_lowers_physical_hips PASS hips=1.318019 -> 1.109545 mat=0.2; minimum0.125m (0.13m target with5mm solver tolerance)
+GRIP_CHECK standing_ctrl_bends_both_anatomical_knees PASS actual knee flexion L/R=57.95221/56.25466
+GRIP_CHECK standing_ctrl_head_up_chest_forward PASS chest/head upright dots=0.8541559/0.9998454
+GRIP_CHECK standing_ctrl_both_boots_supported PASS actual boot clearance L/R=-7.684529E-05/-6.482005E-06
+GRIP_CHECK standing_ctrl_is_free_and_not_ground_escape PASS energy min=155.25 start=155.25 accepted=288/288 cooldown=0 actualInputDelivered=True issuedFrame=3 sampledFrame=8
+GRIP_CHECK stance_free_hands_guard_forward PASS actual hand forward offset L/R=0.5456375/0.5461733; no mouse target or automatic grip
+GRIP_CHECK ctrl_forward_stance_moves_supported PASS actual travel=0.2806228 nearest boot maximumgap=-8.0809E-05 stable stance=True stamina=155.25
+GRIP_CHECK ctrl_lateral_stance_moves_supported PASS actual travel=0.285154 nearest boot maximumgap=0.001254484 stable stance=True stamina=155.25
+GRIP_CHECK stance_release_restores_standing PASS released hips=1.247555 cooldown=0
+GRIP_CHECK standing_stance_available_when_exhausted PASS production Simulate at exact starting stamina2; accepted=True stance=True cooldown=0 stamina=2.079167 down=False physicallyDown=False hips=1.247555; held posture independently checked at full stamina
+GRIP_CHECK lower_shot_cost_unchanged PASS same production Shot action cost12; no extra impulse
+GRIP_CHECK shot_has_actual_lower_level_change PASS physical lowering exceeds f167 dedicated native drop.361m by1cm; standing/min hips=1.241903/0.8509907 minimum head above mat=1.296374 entry target reduced6cm with same final recovery
+GRIP_CHECK stance_shot_stay_connected_no_auto_grab PASS max stance/shot joint gap=0.004786529 grips=0 registry=92
+GRIP_CHECK sustained_scramble_never_script_releases_hold PASS 1.2s of production input steps; real grip retained without displacement/overload
+GRIP_CHECK scramble_has_no_timed_escape_immunity PASS no automatic release, immunity or charged velocity kick
+GRIP_CHECK jitter_clicks_cannot_repeat_scramble PASS accepted=1/10 rapid presses; release recovery=0.3313684
+GRIP_CHECK jitter_clicks_do_not_break_grip PASS prepared real grip survives repeated input edges
+GRIP_CHECK holding_early_press_waits_for_recovery PASS early press is gated
+GRIP_CHECK held_scramble_resumes_after_recovery PASS held key resumes after0.4s; no extra burst
+GRIP_CHECK exhaustion_still_requires_1_2_seconds PASS remaining=1.2
+GRIP_CHECK reset_clears_both_scramble_timers PASS new round restores control
+GRIP_CHECK unstrained_physical_hold_still_survives PASS exact current production grip spring/strain with committed coincident endpoints; actualgap=0 hand gripcomponents=2; disabled pendingDestroy oldcomponents excluded
+GRIP_CHECK real_physical_overload_can_still_break_hold PASS real0.8m committed anchor separation breaks through strain, not a scramble key event; actualgap=0.8
+GRIP_CHECK scramble_patch_no_runtime_issues PASS 
+GRIP_CHECK menu_camera_inside_gym_ring_visible PASS camera=(7.50, 4.70, -8.70) ring viewport=(0.58, 0.45, 12.03) roof retained; screenshot requires visual review
+GRIP_CHECK balanced_changes_render_settings PASS AA2 /18m shadows /lower light maps
+GRIP_CHECK performance_changes_render_settings PASS AA/shadows/HDR off
+GRIP_CHECK high_restores_authored_rendering PASS AA4 /28m authoredgym shadows /HDR
+GRIP_CHECK graphics_preserves_assets_and_physics PASS registry=92 renderers=1274 physics step=0.004166667
+GRIP_CHECK stance_menu_no_runtime_issues PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED stance.json
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

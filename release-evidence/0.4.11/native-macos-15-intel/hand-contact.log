@@ -1,0 +1,51 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+GfxDevice: creating device client; kGfxThreadingModeThreaded
+Unknown Display preferred device: Apple Paravirtual device (high power)
+Metal devices available: 1
+0: Apple Paravirtual device (high power)
+Using device Apple Paravirtual device (high power)
+Initializing Metal device caps: Apple Paravirtual device
+Mac GPU Family: 1
+Apple GPU Family: 0
+MSL Version: 3.0
+Has Float MSAA: 1
+Has Float Filtering: 1
+ReadWrite Texture Tier: 1
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.194 seconds
+- Finished resetting the current domain, in  0.006 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 1.907511 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK hand_contact_samples_authored_palms PASS actual authored palm/finger vertices sampled L/R=128/128
+GRIP_CHECK free_hands_have_no_visual_contact_offset PASS neutral/free aim stays at actual interpolated physical hands
+HAND_CONTACT_LIVE phase=Fighting command=0 roots=(-0.54, 1.25, 0.01) / (0.53, 1.25, 0.00) cursor=(-0.54, 1.25, 0.01) gapL/R=0/0 fitL/R=False/False hand=(-0.50, 1.09, 0.38) reachableGoal=(0.14, 1.57, 0.32) physicalError=0.798 candidate=torso releaseRequired=False clamped=True root=(-0.54, 1.25, 0.01) shoulder=(-0.54, 1.78, 0.25) hand=(-0.55, 1.08, -0.36) reachableGoal=(0.15, 1.56, -0.32) physicalError=0.846 candidate=torso releaseRequired=False clamped=True root=(-0.54, 1.25, 0.01) shoulder=(-0.53, 1.78, -0.25)
+HAND_CONTACT_LIVE phase=Fighting command=2051 roots=(-0.11, 1.19, 0.00) / (0.69, 1.24, 0.01) cursor=(0.69, 1.53, -0.01) gapL/R=0.08247224/0.07352626 fitL/R=True/True hand=(0.54, 1.59, 0.31) reachableGoal=(0.56, 1.56, 0.29) physicalError=0.044 candidate=torso releaseRequired=False clamped=True root=(-0.11, 1.19, 0.00) shoulder=(-0.13, 1.72, 0.26) hand=(0.54, 1.58, -0.30) reachableGoal=(0.56, 1.56, -0.28) physicalError=0.040 candidate=torso releaseRequired=False clamped=True root=(-0.11, 1.19, 0.00) shoulder=(-0.14, 1.73, -0.24)
+HAND_CONTACT_LIVE phase=Fighting command=2051 roots=(0.39, 1.23, 0.01) / (1.05, 1.18, 0.02) cursor=(0.91, 1.49, 0.01) gapL/R=0.0645294/0.06465904 fitL/R=True/True hand=(0.96, 1.53, 0.33) reachableGoal=(0.97, 1.46, 0.31) physicalError=0.082 candidate=torso releaseRequired=False clamped=True root=(0.39, 1.23, 0.01) shoulder=(0.32, 1.75, 0.25) hand=(0.97, 1.53, -0.30) reachableGoal=(0.98, 1.45, -0.28) physicalError=0.083 candidate=torso releaseRequired=False clamped=True root=(0.39, 1.23, 0.01) shoulder=(0.32, 1.75, -0.25)
+HAND_CONTACT_LIVE phase=Fighting command=2051 roots=(0.59, 1.31, 0.01) / (1.28, 1.22, 0.03) cursor=(1.01, 1.53, 0.02) gapL/R=0.05854214/0.05754098 fitL/R=True/True hand=(1.16, 1.56, 0.34) reachableGoal=(1.14, 1.49, 0.32) physicalError=0.072 candidate=torso releaseRequired=False clamped=False root=(0.59, 1.31, 0.01) shoulder=(0.56, 1.84, 0.26) hand=(1.17, 1.56, -0.29) reachableGoal=(1.15, 1.49, -0.26) physicalError=0.076 candidate=torso releaseRequired=False clamped=False root=(0.59, 1.31, 0.01) shoulder=(0.57, 1.84, -0.24)
+HAND_CONTACT_LIVE phase=Fighting command=2051 roots=(0.70, 1.22, 0.01) / (1.40, 1.22, 0.03) cursor=(1.17, 1.51, 0.02) gapL/R=0.05638005/0.05289664 fitL/R=True/True hand=(1.28, 1.55, 0.34) reachableGoal=(1.28, 1.47, 0.32) physicalError=0.080 candidate=torso releaseRequired=False clamped=False root=(0.70, 1.22, 0.01) shoulder=(0.62, 1.75, 0.26) hand=(1.30, 1.55, -0.29) reachableGoal=(1.30, 1.47, -0.26) physicalError=0.086 candidate=torso releaseRequired=False clamped=False root=(0.70, 1.22, 0.01) shoulder=(0.64, 1.75, -0.24)
+GRIP_CHECK contact_fit_uses_actual_manual_body_hold PASS normal mouse-button inputs acquired held frames=26; nearby rendered-palm frames=26; no Attach or posed arms in this fixture
+GRIP_CHECK hand_visual_adjustment_is_small_and_rotation_exact PASS max shown offset=0.028 m, limit0.028m; physical wrist rotation difference=0
+GRIP_CHECK nearby_palm_closes_existing_contact_gap PASS best sampled gap improvement=0.02799993 m; best shown sample gap=0.02340321 m; actual close-up inspection still required
+GRIP_CHECK render_contact_adds_no_physics_or_force PASS render pass preserves all15 actual rigid transforms and accumulated forces; registry92
+GRIP_CHECK released_grips_clear_visual_offset_immediately PASS normal release after rendered inputpoll +completed physics step; command=0 gripsBeforeRender=0 targetsClearBeforeRender=True correctionL/R=(0.00, 0.00, 0.00)/(0.00, 0.00, 0.00) issuedFrame=23 checkedFrame=25; first render after actual release must clear both offsets
+GRIP_CHECK round_reset_clears_hand_contact_visuals PASS reset returns each render proxy to its real physical hand
+GRIP_CHECK hand_contact_no_runtime_issues PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED hand-contact.json
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

@@ -1,0 +1,58 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.127 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.718958 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK mac_updater_native_platform PASS native system ditto/codesign/open required
+GRIP_CHECK mac_actual_signed_archive_compatibility PASS actual incoming signed universal ZIP: all paths, Unix types, extra fields, member modes/budgets and streamed CRC validated before publication; SHA=2eb452fb948d918470c3124447c0912d50ccc15b9bda406136544767c7b3b61f
+GRIP_CHECK mac_zip_structure_crc_and_executable_modes PASS all fixture members read and CRC checked; native signed-bundle verification follows separately
+GRIP_CHECK mac_version_semver_and_order PASS stable three-part versions only; no downgrade/current release in normal updater
+GRIP_CHECK mac_release_urls_are_exact PASS only exact authenticated GitHub Mac-repository release paths
+GRIP_CHECK mac_checksum_rejects_missing_duplicate_invalid PASS one exact64-hex game checksum
+GRIP_CHECK mac_archive_sha_rejects_wrong_digest PASS download cannot proceed to extraction with a wrong SHA256
+GRIP_CHECK mac_archive_size_rejects_mismatch PASS actual byte count must equal API asset size
+GRIP_CHECK mac_zip_rejects_bad-0eee84b968714d6ea3a440163ede68dc.zip PASS unsafe/colliding path=GRIP BREAK.app/../outside.txt
+GRIP_CHECK mac_zip_rejects_bad-77fbed547fd44c3e95377175dc654bcf.zip PASS unsafe/colliding path=/tmp/outside.txt
+GRIP_CHECK mac_zip_rejects_bad-d73c23f89d08469bafe00025c88e78f2.zip PASS unsafe/colliding path=GRIP BREAK.app/Contents/../escape
+GRIP_CHECK mac_zip_rejects_bad-9634711b5371436e823b3a034623ee2c.zip PASS unsafe/colliding path=GRIP BREAK.app/contents/info.plist
+GRIP_CHECK mac_zip_rejects_symbolic_links PASS Unix link mode cannot escape staging
+GRIP_CHECK mac_zip_rejects_bad_crc PASS central checksum mismatch rejected even before native extraction
+GRIP_CHECK mac_bundle_root_uses_contents_owner PASS never replace parentfolder or preferences directory
+GRIP_CHECK mac_shell_quoting_is_literal PASS spaces/apostrophes/substitutions/semicolon remain data
+GRIP_CHECK mac_current_bundle_identity_and_signature PASS native plistID/executable/version, executablebit and codesign --verify --deep --strict passed
+GRIP_CHECK mac_job_rejects_stage_outside_owned_boundary PASS existing canonicalized stage must be inside generated sibling job; rejected by actual boundary guard
+GRIP_CHECK mac_installer_uses_posix_line_endings_and_parses PASS actual emitted shell parsed by native /bin/sh -n; no Windows CRLF in executable script
+GRIP_CHECK mac_installer_waits_for_old_process PASS real old process alive: installed app inode unchanged before old process exit
+GRIP_CHECK mac_native_failed_restart_rolls_back_owned_app PASS actual helperwait/atomicmoves/failed nativeopen: original inode restored, staged inode preserved as failedcopy
+GRIP_CHECK mac_native_install_replace_and_open_restart PASS native ditto/code signature/atomicinstall/open/firstframeack in a disposable clone; no publicdownload claim
+GRIP_CHECK mac_unacknowledged_restart_stops_owned_child_before_rollback PASS real started receipt PID=2308; exact signed disposable child stopped before original inode restored; no duplicate process
+GRIP_CHECK mac_fixture_preserves_user_app_and_outside_files PASS only marked tempclone.app changed; preferences and caller's actual app untouched
+GRIP_CHECK mac_updater_no_runtime_issues PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED mac-updater.json
+Thread 0x16c3cf000 may have been prematurely finalized
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Thread 0x16b4bf000 may have been prematurely finalized

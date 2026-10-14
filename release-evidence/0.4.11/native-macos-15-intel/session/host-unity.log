@@ -1,0 +1,50 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.192 seconds
+- Finished resetting the current domain, in  0.004 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.873656 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK session_authenticated_two_process_peer PASS role=Host connected=True phase=Menu epoch=0 score=0:0 targets=0 inputs=0 snapshots=1/0 status=Friend connected 
+GRIP_CHECK session_both_ready_initial PASS role=Host connected=True phase=Menu epoch=0 score=0:0 targets=0 inputs=2 snapshots=3/0 status=Friend connected 
+GRIP_CHECK session_initial_countdown_enters_match PASS role=Host connected=True phase=Fighting epoch=1 score=0:0 targets=0 inputs=185 snapshots=13/0 status=Friend connected 
+GRIP_CHECK staged_result_1_releases_actual_grips PASS role=Host connected=True phase=RoundOver epoch=1 score=1:0 targets=0 inputs=379 snapshots=22/0 status=Friend connected production RoundWin event; not an earned-pin fixture
+GRIP_CHECK staged_result_1_automatic_round_reset_survives PASS role=Host connected=True phase=Fighting epoch=2 score=1:0 targets=0 inputs=752 snapshots=75/0 status=Friend connected observed real automatic RoundOver→new epoch→Countdown→Fighting
+GRIP_CHECK staged_result_2_releases_actual_grips PASS role=Host connected=True phase=RoundOver epoch=2 score=2:0 targets=0 inputs=776 snapshots=83/0 status=Friend connected production RoundWin event; not an earned-pin fixture
+GRIP_CHECK staged_result_2_automatic_round_reset_survives PASS role=Host connected=True phase=Fighting epoch=3 score=2:0 targets=0 inputs=1125 snapshots=139/0 status=Friend connected observed real automatic RoundOver→new epoch→Countdown→Fighting
+GRIP_CHECK staged_result_3_releases_actual_grips PASS role=Host connected=True phase=MatchOver epoch=3 score=3:0 targets=0 inputs=1140 snapshots=140/0 status=Friend connected production RoundWin event; not an earned-pin fixture
+GRIP_CHECK match_results_idle_exceeds_peer_timeout PASS role=Host connected=True phase=MatchOver epoch=3 score=3:0 targets=0 inputs=2514 snapshots=349/0 status=Friend connected 25s result idle; host's20s input timeout remains enabled
+GRIP_CHECK host_rematch_uses_same_room_resets_scores PASS role=Host connected=True phase=Fighting epoch=4 score=0:0 targets=0 inputs=2680 snapshots=361/0 status=Friend connected 
+GRIP_CHECK client_lobby_request_returns_both_without_disconnect PASS role=Host connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=2737 snapshots=366/0 status=Friend connected 
+GRIP_CHECK online_lobby_idle_exceeds_peer_timeout PASS role=Host connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=4277 snapshots=693/0 status=Friend connected 25s lobby idle; actual neutral client heartbeats continue
+GRIP_CHECK same_room_can_ready_up_again PASS role=Host connected=True phase=Menu epoch=4 score=0:0 targets=0 inputs=4283 snapshots=694/0 status=Friend connected 
+GRIP_CHECK same_room_restarts_after_client_lobby PASS role=Host connected=True phase=Fighting epoch=5 score=0:0 targets=0 inputs=4470 snapshots=731/0 status=Friend connected 
+GRIP_CHECK host_lobby_returns_without_disconnect PASS role=Host connected=True phase=Menu epoch=5 score=0:0 targets=0 inputs=4707 snapshots=760/0 status=Friend connected 
+GRIP_CHECK explicit_leave_alone_closes_host_session PASS role=Offline connected=False phase=Menu epoch=5 score=0:0 targets=0 inputs=4707 snapshots=760/0 status=Local play 
+GRIP_CHECK session_kept_same_transport_until_explicit_leave PASS same sessionId throughout round results, resets, rematch and both coordinated lobbies; no hidden reconnect
+GRIP_CHECK session_manual_grip_cleanup_scope PASS actual normal aim/click input produced maximum held targets=1; no Attach, forced count or assertion of physically earned pins; result event was deliberately staged
+GRIP_CHECK session_lifetime_finite_and_runtime_clean PASS finite real snapshot/physics state; issues=
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED session-host.json
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.

@@ -1,0 +1,115 @@
+{
+  "version": "0.4.11",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "architecture": "x86_64",
+  "nativePhysicsPassed": true,
+  "graphicsTested": true,
+  "privateInternetJoinTested": false,
+  "nativeUpdaterLocalTested": true,
+  "sessionLifetimeTested": true,
+  "reports": [
+    {
+      "file": "mac-updater/mac-updater.json",
+      "checks": 27,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "session/host/session-host.json",
+      "checks": 21,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "session/client/session-client.json",
+      "checks": 16,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "ground-recovery/ground-recovery.json",
+      "checks": 26,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "stamina/stamina.json",
+      "checks": 10,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "scramble/scramble.json",
+      "checks": 13,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "stance/stance.json",
+      "checks": 32,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "corner/corner.json",
+      "checks": 15,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "top-control/top-control.json",
+      "checks": 10,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "hand-contact/hand-contact.json",
+      "checks": 11,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "appearance/appearance.json",
+      "checks": 16,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "gym/gym.json",
+      "checks": 17,
+      "failed": 1,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "ui/ui.json",
+      "checks": 2,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    }
+  ],
+  "unresolvedChecks": [
+    {
+      "name": "gym_performance",
+      "passed": false,
+      "evidence": "native mean FPS=7.316787 minimum=4.42864 GPU=Apple Paravirtual device"
+    }
+  ],
+  "sessionScope": "two native loopback TCP peers; staged RoundWin result events; real manual aim input; three rounds, rematch,25s result/lobby idles,client/host coordinated lobby, intentional leave; not physically earned pins or internet tunnel hosting",
+  "graphicsDevice": "Apple Paravirtual device",
+  "functionalFailures": [],
+  "nativeChecks": 216,
+  "passedChecks": 215
+}

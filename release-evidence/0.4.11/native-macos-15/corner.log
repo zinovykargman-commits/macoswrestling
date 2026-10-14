@@ -1,0 +1,62 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.098 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.408250 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=58.4375 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=1 side=1 speed=0.8 defense=0 force=26.29687 handCount=1 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_adds_bounded_physical_leg_pressure PASS prepared live manual leg contacts: actual extra force=58.4375 N balance loss=0.0398407 in one physicaltick; handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_contact_wrench_has_equal_reaction PASS actual accumulated net force=(0.00, 0.00, 0.00) and origin torque=(0.00, 0.00, 0.00) across both15-body athletes
+GRIP_CHECK corner_one_arm_is_weaker PASS one/two actual force=26.29687/58.4375 and extra balance loss=0.01792908/0.0398407
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=128 force=20.45313 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=4096 force=8.765626 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_brace_and_sprawl_resist PASS normal/brace/sprawl actualforce=58.4375/20.45313/8.765626
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=0 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_requires_earned_sideways_motion PASS stationary side key and non-lateral input supply no finishing pressure
+CORNER_ISOLATE region=9 grips=0 side=1 speed=0.8 defense=0 force=0 handCount=0 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2
+CORNER_ISOLATE region=1 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.08, 1.34, 0.07) handTransform=(-0.08, 1.34, 0.07) targetRb=(0.00, 1.58, 0.30) targetTransform=(0.00, 1.58, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.08, -0.23, -0.23) anchorGap=0
+CORNER_ISOLATE region=9 grips=1 side=1 speed=0.8 defense=0 force=0 handCount=1 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(0.65, 1.04, 0.17) handTransform=(0.65, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0.8
+GRIP_CHECK corner_requires_actual_leg_contact PASS no grip, torso grip and remote stretched leggrip all inactive
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.45/0.45/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.45/0.45 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=0 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=-0.05/-0.05/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_requires_mat_support_and_no_ground_flip PASS airborne attacker/victim, down attacker, boots outside mat or below mat receive no corner leverage
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=0 force=58.4328 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+CORNER_ISOLATE region=9 grips=2 side=1 speed=0.8 defense=128 force=20.45148 handCount=2 roots=(0.00, 1.24, -0.65)/(0.00, 1.24, 0.30) footbottoms=0.2/0.2/0.2/0.2 handRb=(-0.15, 1.04, 0.17) handTransform=(-0.15, 1.04, 0.17) targetRb=(-0.13, 0.98, 0.30) targetTransform=(-0.13, 0.98, 0.30) localHandAnchor=(0.00, 0.00, 0.00) localLegAnchor=(-0.02, 0.06, -0.13) anchorGap=0
+GRIP_CHECK corner_preserves_grip_work_cost_no_brace_bill PASS actual full production Simulate stamina/s normal/braced=5.998535/5.998535; two grips4+existingpull2, no new cost
+GRIP_CHECK corner_leg_is_manually_caught_in_live_play PASS natural handinput+mouse leg aim acquired=1; no Attach/velocity injection in live scenario;  hand=(-0.04, 1.11, 0.18) reachableGoal=(-0.09, 1.09, 0.24) physicalError=0.081 candidate=left thigh releaseRequired=False clamped=True root=(0.15, 1.09, -0.44) shoulder=(-0.06, 1.60, -0.27)
+GRIP_CHECK live_manual_leg_catch_can_turn_corner PASS actual corner force integral=36.85737 Ns; opponent displacement=0.4438401 m; fixture creates no instant takedown
+GRIP_CHECK corner_live_bodies_connected PASS actual maxliveanchor separation=0.003452859 and registry=92
+GRIP_CHECK corner_release_stops_finishing_pressure PASS release returns normal physical play
+GRIP_CHECK corner_no_runtime_issues PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0050 m
+GRIP_AUDIT_FINISHED corner.json
+Thread 0x170617000 may have been prematurely finalized
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Thread 0x16f707000 may have been prematurely finalized

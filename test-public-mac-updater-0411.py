@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib,json,platform,subprocess,sys,urllib.request
+import hashlib,json,platform,subprocess,sys,urllib.request,shutil,tempfile,re
 assert sys.platform=='darwin'
 root=Path.cwd();checks=root/'checks';checks.mkdir(exist_ok=True)
 repository='zinovykargman-commits/macoswrestling'
@@ -24,6 +24,21 @@ subprocess.run(['/usr/bin/ditto','-x','-k',str(download),str(root/'stage')],chec
 app=root/'stage/GRIP BREAK.app';subprocess.run(['/usr/bin/codesign','--verify','--deep','--strict',str(app)],check=True,timeout=40)
 exe=app/'Contents/MacOS/GRIP BREAK'
 subprocess.run([str(exe),'-batchmode','-nographics','--mac-updater-public-test','--evidence',str(checks/'public'),'-logFile',str(checks/'public.log')],check=True,timeout=500)
+fixture=checks/'public/mac-public-clone-root.txt'
+if fixture.exists():
+    owned=Path(fixture.read_text().strip()).resolve();owned.relative_to(Path(tempfile.gettempdir()).resolve())
+    assert re.fullmatch(r'GRIP_BREAK-MacUpdaterAudit-[0-9a-f]{32}',owned.name) and (owned/'disposable-owned.txt').read_text().strip()==owned.name
+    exported=checks/'public/actual-update';exported.mkdir(parents=True,exist_ok=True)
+    for folder in ('public-evidence','restart-evidence'):
+        source=owned/folder
+        if source.exists():
+            for item in source.glob('*'):
+                if item.is_file() and not item.is_symlink() and item.suffix in ('.json','.txt'):shutil.copy2(item,exported/item.name)
+    for job in owned.glob('.GRIP_BREAK-update-*'):
+        assert not job.is_symlink() and re.fullmatch(r'\.GRIP_BREAK-update-[0-9a-f]{32}',job.name)
+        for name in ('install.log','update-job.json','result','restart-started','restart-ok'):
+            source=job/name
+            if source.is_file() and not source.is_symlink():shutil.copy2(source,exported/name)
 data=json.loads((checks/'public/mac-updater-public.json').read_text());failed=[c for c in data['checks'] if not c['passed']]
 summary={'version':'0.4.11','architecture':platform.machine(),'actualStableRelease':release['html_url'],'bootstrapArchiveHash':expected[0],'nativeChecks':len(data['checks']),'passedChecks':len(data['checks'])-len(failed),'issues':data['issues'],'failed':failed,'publicDownloadReplaceRestartPassed':data['build']=='0.4.11' and not failed and data['issues']==0,'scope':'Actual latestGitHub archive/checksum re-downloaded by game,strictZIP/CRC/signature verified,owneddisposable.app replaced,andnative firstframeack received; callerapp/preferences/outsidefiles unchanged; no DeveloperID/notarization claim'}
 (checks/'public-updater-summary.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2));assert summary['publicDownloadReplaceRestartPassed'],failed

@@ -1,0 +1,57 @@
+Mono path[0] = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/MonoBleedingEdge/etc'
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.3.7f1 (696ec25a53d1)
+[Subsystems] Discovering subsystems at path /Users/runner/work/macoswrestling/macoswrestling/stage/GRIP BREAK.app/Contents/Resources/Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.086 seconds
+- Finished resetting the current domain, in  0.002 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+UnloadTime: 0.279458 ms
+GRIP_CHECK test_inputs_not_serialized PASS runtime-only input; scene cannot install an empty test array
+GRIP_CHECK ground_recovery_delay_is_2_5_seconds PASS production delay, original19 stamina/s rate retained
+GRIP_CHECK back_rest_waits_before_2_5_seconds PASS actual ground seconds=2.487505 stamina=40
+GRIP_CHECK back_rest_recovers_after_delay PASS ready=True rate=18.99994 ground seconds=2.5
+GRIP_CHECK back_active_scramble_still_costs PASS funded ground escape cannot regenerate while paying effort
+GRIP_CHECK back_rapid_ctrl_taps_do_not_refill PASS ready ground timer does not bypass raw Ctrl recovery block
+GRIP_CHECK back_rest_after_scramble_recovers PASS original0.8s attempt recovery delay expires; ground timer need not restart
+GRIP_CHECK back_airborne_is_not_ground_rest PASS lifted core has no mat contact
+GRIP_CHECK back_real_pin_control_fixture PASS existing live grip/C and physically grounded opponent
+GRIP_CHECK back_pinned_rest_waits_before_delay PASS pinning blocks early passive recovery
+GRIP_CHECK back_pinned_rest_recovers_after_delay PASS live opponent pressure retained; rate=18.99994
+GRIP_CHECK back_own_grip_still_costs PASS own grip remains2/s
+GRIP_CHECK back_reset_clears_ground_delay PASS fresh standing round uses original immediate recovery
+GRIP_CHECK chest_rest_waits_before_2_5_seconds PASS actual ground seconds=2.487505 stamina=40
+GRIP_CHECK chest_rest_recovers_after_delay PASS ready=True rate=18.99994 ground seconds=2.5
+GRIP_CHECK chest_active_scramble_still_costs PASS funded ground escape cannot regenerate while paying effort
+GRIP_CHECK chest_rapid_ctrl_taps_do_not_refill PASS ready ground timer does not bypass raw Ctrl recovery block
+GRIP_CHECK chest_rest_after_scramble_recovers PASS original0.8s attempt recovery delay expires; ground timer need not restart
+GRIP_CHECK chest_airborne_is_not_ground_rest PASS lifted core has no mat contact
+GRIP_CHECK chest_real_pin_control_fixture PASS existing live grip/C and physically grounded opponent
+GRIP_CHECK chest_pinned_rest_waits_before_delay PASS pinning blocks early passive recovery
+GRIP_CHECK chest_pinned_rest_recovers_after_delay PASS live opponent pressure retained; rate=18.99994
+GRIP_CHECK chest_own_grip_still_costs PASS own grip remains2/s
+GRIP_CHECK chest_reset_clears_ground_delay PASS fresh standing round uses original immediate recovery
+GRIP_CHECK ground_recovery_runtime_clean PASS 
+GRIP_CHECK connected_body_joints PASS missing frames=0 maximum physical anchor separation=0.0000 m
+GRIP_AUDIT_FINISHED ground-recovery.json
+Thread 0x1708bf000 may have been prematurely finalized
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input System polling thread exited.
+Input System module state changed to: Shutdown.
+Thread 0x16f9af000 may have been prematurely finalized

@@ -1,0 +1,151 @@
+{
+    "build": "0.4.11",
+    "engine": "6000.3.7f1",
+    "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
+    "graphics": "Null Device",
+    "startedUtc": "2026-10-14T18:59:42.8269480Z",
+    "duration": 94.86243438720703,
+    "averageFps": 2.0892014503479006,
+    "minFps": 0.08568080514669419,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "mac_updater_native_platform",
+            "passed": true,
+            "evidence": "native system ditto/codesign/open required"
+        },
+        {
+            "name": "mac_actual_signed_archive_compatibility",
+            "passed": true,
+            "evidence": "actual incoming signed universal ZIP: all paths, Unix types, extra fields, member modes/budgets and streamed CRC validated before publication; SHA=2eb452fb948d918470c3124447c0912d50ccc15b9bda406136544767c7b3b61f"
+        },
+        {
+            "name": "mac_zip_structure_crc_and_executable_modes",
+            "passed": true,
+            "evidence": "all fixture members read and CRC checked; native signed-bundle verification follows separately"
+        },
+        {
+            "name": "mac_version_semver_and_order",
+            "passed": true,
+            "evidence": "stable three-part versions only; no downgrade/current release in normal updater"
+        },
+        {
+            "name": "mac_release_urls_are_exact",
+            "passed": true,
+            "evidence": "only exact authenticated GitHub Mac-repository release paths"
+        },
+        {
+            "name": "mac_checksum_rejects_missing_duplicate_invalid",
+            "passed": true,
+            "evidence": "one exact64-hex game checksum"
+        },
+        {
+            "name": "mac_archive_sha_rejects_wrong_digest",
+            "passed": true,
+            "evidence": "download cannot proceed to extraction with a wrong SHA256"
+        },
+        {
+            "name": "mac_archive_size_rejects_mismatch",
+            "passed": true,
+            "evidence": "actual byte count must equal API asset size"
+        },
+        {
+            "name": "mac_zip_rejects_bad-e2d7a65a3836490d897b34c901bcd9a8.zip",
+            "passed": true,
+            "evidence": "unsafe/colliding path=GRIP BREAK.app/../outside.txt"
+        },
+        {
+            "name": "mac_zip_rejects_bad-53a5e1cc182f45fb9e659bff9a971441.zip",
+            "passed": true,
+            "evidence": "unsafe/colliding path=/tmp/outside.txt"
+        },
+        {
+            "name": "mac_zip_rejects_bad-2d1df3fdc26b4c19bb2afbbba51c817f.zip",
+            "passed": true,
+            "evidence": "unsafe/colliding path=GRIP BREAK.app/Contents/../escape"
+        },
+        {
+            "name": "mac_zip_rejects_bad-9b4997ad5b8c4adc90d14ee99181248a.zip",
+            "passed": true,
+            "evidence": "unsafe/colliding path=GRIP BREAK.app/contents/info.plist"
+        },
+        {
+            "name": "mac_zip_rejects_symbolic_links",
+            "passed": true,
+            "evidence": "Unix link mode cannot escape staging"
+        },
+        {
+            "name": "mac_zip_rejects_bad_crc",
+            "passed": true,
+            "evidence": "central checksum mismatch rejected even before native extraction"
+        },
+        {
+            "name": "mac_bundle_root_uses_contents_owner",
+            "passed": true,
+            "evidence": "never replace parentfolder or preferences directory"
+        },
+        {
+            "name": "mac_shell_quoting_is_literal",
+            "passed": true,
+            "evidence": "spaces/apostrophes/substitutions/semicolon remain data"
+        },
+        {
+            "name": "mac_current_bundle_identity_and_signature",
+            "passed": true,
+            "evidence": "native plistID/executable/version, executablebit and codesign --verify --deep --strict passed"
+        },
+        {
+            "name": "mac_job_rejects_stage_outside_owned_boundary",
+            "passed": true,
+            "evidence": "existing canonicalized stage must be inside generated sibling job; rejected by actual boundary guard"
+        },
+        {
+            "name": "mac_installer_uses_posix_line_endings_and_parses",
+            "passed": true,
+            "evidence": "actual emitted shell parsed by native /bin/sh -n; no Windows CRLF in executable script"
+        },
+        {
+            "name": "mac_installer_waits_for_old_process",
+            "passed": true,
+            "evidence": "real old process alive: installed app inode unchanged before old process exit"
+        },
+        {
+            "name": "mac_native_failed_restart_rolls_back_owned_app",
+            "passed": true,
+            "evidence": "actual helperwait/atomicmoves/failed nativeopen: original inode restored, staged inode preserved as failedcopy"
+        },
+        {
+            "name": "mac_native_install_replace_and_open_restart",
+            "passed": true,
+            "evidence": "native ditto/code signature/atomicinstall/open/firstframeack in a disposable clone; no publicdownload claim"
+        },
+        {
+            "name": "mac_unacknowledged_restart_stops_owned_child_before_rollback",
+            "passed": true,
+            "evidence": "real started receipt PID=5713; exact signed disposable child stopped before original inode restored; no duplicate process"
+        },
+        {
+            "name": "mac_fixture_preserves_user_app_and_outside_files",
+            "passed": true,
+            "evidence": "only marked tempclone.app changed; preferences and caller's actual app untouched"
+        },
+        {
+            "name": "mac_updater_no_runtime_issues",
+            "passed": true,
+            "evidence": ""
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": "0.4.11",
+  "assets": {
+    "GRIP_BREAK-macOS.zip": {
+      "sha256": "65f7d8ae8691b842422324b17b4be55f8802eeab1e306649ae673a47b6b232cd",
+      "size": 143331019
+    },
+    "GRIP_BREAK-macOS-Source.zip": {
+      "sha256": "c44819f0a6160048f793fd4f3bdc557c243a80ca3c436a7079dd19fd493dc595",
+      "size": 83176488
+    }
+  },
+  "signingOnlyChanges": [
+    "Contents/_CodeSignature/CodeResources",
+    "Contents/MacOS/GRIP BREAK",
+    "Contents/Frameworks/libMonoPosixHelper.dylib",
+    "Contents/Frameworks/libmono-native.dylib",
+    "Contents/Frameworks/UnityPlayer.dylib",
+    "Contents/Frameworks/libmonobdwgc-2.0.dylib"
+  ],
+  "nativeRun": 38619613930,
+  "nativeChecks": 432,
+  "passedChecks": 430,
+  "unresolvedChecks": [
+    {
+      "architecture": "arm64",
+      "checks": [
+        {
+          "name": "gym_performance",
+          "passed": false,
+          "evidence": "native mean FPS=24.65641 minimum=13.23825 GPU=Apple Paravirtual device"
+        }
+      ]
+    },
+    {
+      "architecture": "x86_64",
+      "checks": [
+        {
+          "name": "gym_performance",
+          "passed": false,
+          "evidence": "native mean FPS=7.316787 minimum=4.42864 GPU=Apple Paravirtual device"
+        }
+      ]
+    }
+  ],
+  "screenshotsInspected": true,
+  "visualReviewEvidence": {
+    "version": "0.4.11",
+    "nativeBuild": "f186",
+    "accepted": true,
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "reviewedFiles": [
+      "work/mac-native/38619613930/native-macos-15/gym/gym-mat-downward.png",
+      "work/mac-native/38619613930/native-macos-15/gym/gym-mat-opposite.png",
+      "work/mac-native/38619613930/native-macos-15/gym/gym-corner-detail.png",
+      "work/mac-native/38619613930/native-macos-15-intel/gym/gym-mat-downward.png",
+      "work/mac-native/38619613930/native-macos-15-intel/gym/gym-mat-opposite.png",
+      "work/mac-native/38619613930/native-macos-15-intel/gym/gym-corner-detail.png"
+    ],
+    "hashes": {
+      "work\\mac-native\\38619613930\\native-macos-15\\gym\\gym-mat-downward.png": "25246fc7fd73b48b06fcc7df0028aacc6471dbadc9f6a45ceb7232bd2e31ee16",
+      "work\\mac-native\\38619613930\\native-macos-15\\gym\\gym-mat-opposite.png": "9121664b9082538357c6804fed63efcebf672b4461594fafee261099cf2f44eb",
+      "work\\mac-native\\38619613930\\native-macos-15\\gym\\gym-corner-detail.png": "bf020aab05d282b77c26ae42acf5ccee321fe130a451deac80c69a090d34373d",
+      "work\\mac-native\\38619613930\\native-macos-15-intel\\gym\\gym-mat-downward.png": "afec689070fe29b084935e6696a11b732f8707708cedbb0a8815be88ac45d4af",
+      "work\\mac-native\\38619613930\\native-macos-15-intel\\gym\\gym-mat-opposite.png": "6b6baef3872d19b824cde01a6db3afda223256385fca5306580758d96354b6e6",
+      "work\\mac-native\\38619613930\\native-macos-15-intel\\gym\\gym-corner-detail.png": "3935049f498b7d8928ccda4d7f421b56c7de9b9e3345d23bc55672ba842211ea"
+    },
+    "decision": "Root inspected six actual native Mac screenshots: gray woven printed mat retains detail and lines, and white specular pools/stripe absent from both opposing angles; rope skin/corner geometry retained. Existing character pose/clothing limitations remain, and virtual GPU benchmark failures are preserved, not physical Mac FPS claims."
+  },
+  "nativeUpdaterLocalTested": true,
+  "publicUpdaterTested": false,
+  "currentLiveInternetTested": false
+}
