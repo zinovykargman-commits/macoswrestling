@@ -15,8 +15,6 @@ Physical keyboard/controller events, independent-machine internet play, long hum
 Current session fixtures cover real authenticated host/client connections, deliberately staged round-win events, results, rematch and returning to the same room. They do not constitute two-person physical pinning over separate internet connections. Windows shutdown fixtures cover the owned game, a real room listener and a harmless owned helper tree; unrelated applications are never terminated. Measured rendering comparisons are separate from correctness and are not a promise of steady FPS.
 
 
-## Mac 0.4.11 verification limits
+## Mac 0.4.12 verification limit
 
-430/432 assertions passed across native Intel and Apple Silicon macOS15, with zero runtime issues. Local updater replacement/restart/rollback and loopback room lifetime passed. The gym frame-rate benchmark failed on 2 virtual graphics runner(s); actual FPS and failures are preserved in raw reports. Physical-Mac performance remains unverified. Current Mac internet joining and physical-machine performance remain unverified. The actual-public updater test is reported separately after publication. Existing singlet trim folds, nonflush hand fit and colored grip/aim ribbons remain documented cosmetic limits.
-
-Actual public update replacement/restart passed on Intel. Apple Silicon local native updater checks passed 27/27, but its actual-public validation remains incomplete: an earlier caller never saw installer handoff, and a separate diagnostic confirmed anonymous GitHub API quota exhaustion on the hosted ARM route before game launch. These scopes are recorded separately in PUBLIC_VERIFICATION.md; published binaries were not changed.
+Fresh native Mac verification is pending. The previous 0.4.8 GitHub Mac runners used Apple Paravirtual GPUs and failed their frame-rate benchmarks. Mac defaults to Balanced graphics in this release; physical-Mac performance, current live internet play, long sessions and human balance remain unverified. Windows results do not establish Mac behavior.

@@ -11,7 +11,7 @@ public static class BuildGripBreak {
         PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone,"com.gripbreak.macoswrestling");
         PlayerSettings.companyName = "Grip Break";
         PlayerSettings.productName = "GRIP BREAK";
-        PlayerSettings.bundleVersion = "0.4.11";
+        PlayerSettings.bundleVersion = "0.4.12";
         PlayerSettings.defaultScreenWidth = 1600;
         PlayerSettings.defaultScreenHeight = 900;
         PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
