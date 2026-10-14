@@ -15,7 +15,6 @@
     "GBAuditGym.cs",
     "GBAuditLocomotionQuality.cs",
     "GBAuditMacUpdater.cs",
-    "GBAuditMomentum.cs",
     "GBAuditOverhaul.cs",
     "GBAuditPerformance.cs",
     "GBAuditPhysicsSnapshots.cs",
@@ -58,6 +57,7 @@
   "platformAdaptedScripts": [
     "GBApp.cs",
     "GBAuditHandContact.cs",
+    "GBAuditMomentum.cs",
     "GBAuditPin.cs",
     "GBAuditStance.cs",
     "GBKit.cs",
@@ -66,7 +66,8 @@
   "auditOnlyAdaptedScripts": [
     "GBAuditPin.cs",
     "GBAuditStance.cs",
-    "GBAuditHandContact.cs"
+    "GBAuditHandContact.cs",
+    "GBAuditMomentum.cs"
   ],
   "auditFixtureChanges": [
     "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
@@ -414,5 +415,20 @@
   "unchangedUpdaterBaseline": "0.4.11",
   "automaticMacUpdaterImplemented": true,
   "nativeMacUpdaterTested": false,
-  "publicUpdaterTested": false
+  "publicUpdaterTested": false,
+  "momentumAuditAdapter": {
+    "reason": "Intel hosted momentum report2.677FPS cannot resolve0.1s real-clockQ/0.2s jump/0.7s turn; simulation clock and bounded catch-up restore sampled input/observations",
+    "originalFailedRun": 38645646876,
+    "originalIntelMomentumChecksPassed": 11,
+    "originalIntelMomentumChecksTotal": 22,
+    "allOriginalAssertionsAndDurationsRetained": true,
+    "addedTimingAssertion": true,
+    "fixedDeltaTimeUnchanged": 0.004166666666666667,
+    "auditMaximumDeltaTime": 0.016666666666666666,
+    "maximumDeltaTimeRestoredInFinally": true,
+    "productionChanged": false,
+    "originalSha256": "f130dd089dea79b0a6683a399f7cf3aebe82985abeab28ad4744d0e54a701cda",
+    "adaptedSha256": "6a99dc115e92740d6c8bfe1b19fbdc39cf59218e97f1f57191b01cf021752762"
+  },
+  "windowsCheckoutMayAdvanceBeyondFrozenF191": true
 }

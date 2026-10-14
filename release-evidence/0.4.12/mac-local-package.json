@@ -18,7 +18,6 @@
       "GBAuditGym.cs",
       "GBAuditLocomotionQuality.cs",
       "GBAuditMacUpdater.cs",
-      "GBAuditMomentum.cs",
       "GBAuditOverhaul.cs",
       "GBAuditPerformance.cs",
       "GBAuditPhysicsSnapshots.cs",
@@ -61,6 +60,7 @@
     "platformAdaptedScripts": [
       "GBApp.cs",
       "GBAuditHandContact.cs",
+      "GBAuditMomentum.cs",
       "GBAuditPin.cs",
       "GBAuditStance.cs",
       "GBKit.cs",
@@ -69,7 +69,8 @@
     "auditOnlyAdaptedScripts": [
       "GBAuditPin.cs",
       "GBAuditStance.cs",
-      "GBAuditHandContact.cs"
+      "GBAuditHandContact.cs",
+      "GBAuditMomentum.cs"
     ],
     "auditFixtureChanges": [
       "Commit paused Rigidbody transforms before contact lookup and Attach and overload",
@@ -417,7 +418,22 @@
     "unchangedUpdaterBaseline": "0.4.11",
     "automaticMacUpdaterImplemented": true,
     "nativeMacUpdaterTested": false,
-    "publicUpdaterTested": false
+    "publicUpdaterTested": false,
+    "momentumAuditAdapter": {
+      "reason": "Intel hosted momentum report2.677FPS cannot resolve0.1s real-clockQ/0.2s jump/0.7s turn; simulation clock and bounded catch-up restore sampled input/observations",
+      "originalFailedRun": 38645646876,
+      "originalIntelMomentumChecksPassed": 11,
+      "originalIntelMomentumChecksTotal": 22,
+      "allOriginalAssertionsAndDurationsRetained": true,
+      "addedTimingAssertion": true,
+      "fixedDeltaTimeUnchanged": 0.004166666666666667,
+      "auditMaximumDeltaTime": 0.016666666666666666,
+      "maximumDeltaTimeRestoredInFinally": true,
+      "productionChanged": false,
+      "originalSha256": "f130dd089dea79b0a6683a399f7cf3aebe82985abeab28ad4744d0e54a701cda",
+      "adaptedSha256": "6a99dc115e92740d6c8bfe1b19fbdc39cf59218e97f1f57191b01cf021752762"
+    },
+    "windowsCheckoutMayAdvanceBeyondFrozenF191": true
   },
   "buildSucceeded": true,
   "nativeMacTested": false,
@@ -534,7 +550,7 @@
     {
       "name": "shared_gameplay_matches_frozen_windows",
       "passed": true,
-      "evidence": "50 byte-identical shared scripts; platform differences explicitly listed in port evidence"
+      "evidence": "49 byte-identical f191 shared scripts; platform/audit differences explicitly listed in port evidence"
     },
     {
       "name": "shared_runtime_resources_match_frozen_windows",
@@ -542,9 +558,9 @@
       "evidence": "172 byte-identical runtime asset files"
     },
     {
-      "name": "windows_source_unchanged",
+      "name": "frozen_f191_source_boundary_retained",
       "passed": true,
-      "evidence": "all Assets/Packages/ProjectSettings hashes preserved"
+      "evidence": "original accepted f191 hashes retained; later authorized Windows0.4.13 work is outside this port snapshot"
     },
     {
       "name": "same_network_protocol12",
@@ -564,7 +580,7 @@
     {
       "name": "known_issues_preserved",
       "passed": true,
-      "evidence": "exact current Windows known issues carried over, plus Mac-specific limits"
+      "evidence": "accepted0.4.12 Windows f191 known issues carried over; later Windows work excluded"
     },
     {
       "name": "zip_crc_GRIP_BREAK-macOS.zip",
@@ -589,13 +605,13 @@
   ],
   "assets": {
     "GRIP_BREAK-macOS.zip": {
-      "sha256": "49a4d1ef3f7d736bac81f1a378e7e88293308742cc0c73e89c565c23226ca9d6",
-      "size": 143349984
+      "sha256": "e4cde8c46a64d6e0592127e40c91fe1cb1a77d48660c8b02b3f53dd40f797695",
+      "size": 143350804
     },
     "GRIP_BREAK-macOS-Source.zip": {
-      "sha256": "6f6145b9db361c5893ae3db5f2c35a86610e91a48332b93a89ba4acaeaefef5f",
-      "size": 83175311
+      "sha256": "eaf9e249fdf0f69bcd3f770161f783aa785ed59f4782be14bbaef6b86181c618",
+      "size": 83175873
     }
   },
-  "appBytes": 272569077
+  "appBytes": 272570613
 }

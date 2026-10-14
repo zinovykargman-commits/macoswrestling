@@ -1,6 +1,11 @@
 name: Check native Mac package
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        type: choice
+        default: full
+        options: [full, momentum]
 permissions:
   contents: read
 jobs:
@@ -51,6 +56,7 @@ jobs:
       - name: Run native physics and startup checks
         env:
           GRIP_TEST_INVITE: ${{ secrets.GRIP_TEST_INVITE }}
+          GRIP_NATIVE_SCOPE: ${{ inputs.scope || 'full' }}
         run: |
           cd incoming
           shasum -a 256 -c GRIP_BREAK-macOS-SHA256.txt

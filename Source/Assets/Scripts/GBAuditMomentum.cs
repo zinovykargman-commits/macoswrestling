@@ -6,6 +6,7 @@ using System.Collections;
 // Measures physical outcomes through normal player commands. This audit never
 // installs a grip, invokes an attack directly, or injects a momentum impulse.
 public static class GBAuditMomentum {
+    [Serializable] class MacAuditClock {public float originalMaximumDeltaTime,appliedMaximumDeltaTime,restoredMaximumDeltaTime,fixedDeltaTime,simulationSeconds,realSeconds;public int renderedFrames;}
     class Integrity {
         public bool finite=true;public float gap,maxSpeed,maxEnergy;public int missing;
         public void Measure(GBApp app){
@@ -29,9 +30,11 @@ public static class GBAuditMomentum {
     static int VictimGrips(GBWrestler holder,GBWrestler victim){int count=0;foreach(var h in holder.hands)if(h.joint&&h.target&&h.target.wrestler==victim)count++;return count;}
     static void Start(GBApp app){app.BeginMatch(3,1);app.Phase=GBApp.GamePhase.Fighting;app.SetPhaseSeconds(100);Aim(app);}
     static void Aim(GBApp app,int flags=0,float move=0){app.ScriptedInputs[0]=new GBInput{ax=1,x=move,flags=flags};app.ScriptedInputs[1]=new GBInput{ax=-1};}
-    static IEnumerator Observe(GBApp app,Integrity integrity,float seconds){float end=Time.realtimeSinceStartup+seconds;while(Time.realtimeSinceStartup<end){integrity.Measure(app);yield return null;}}
+    static IEnumerator Observe(GBApp app,Integrity integrity,float seconds){float end=Time.time+seconds;while(Time.time<end){integrity.Measure(app);yield return null;}}
 
     public static IEnumerator Run(GBApp app,string directory,Action<string,bool,string> check){
+        float originalMaximum=Time.maximumDeltaTime,realBegin=Time.realtimeSinceStartup,simulationBegin=Time.time;int frameBegin=Time.frameCount;Time.maximumDeltaTime=1f/60f;
+        try {
         app.LocalDevice=0;app.TrainingPartner=0;app.ScriptedInputs=new GBInput[2];var integrity=new Integrity();
         var slow=new ShotSample();yield return Shot(app,integrity,directory,"stationary",false,0,slow);
         var fast=new ShotSample();yield return Shot(app,integrity,directory,"running",true,0,fast);
@@ -61,16 +64,16 @@ public static class GBAuditMomentum {
         float freeEnergy=spin.transferImpulse*spin.transferImpulse/(2*Mathf.Max(1,spin.targetMass));
         check("recent_spin_carries_grabbed_opponent",spin.transferImpulse>still.transferImpulse+5&&spin.gripGain>freeResponse*.5f&&spin.energyGain>freeEnergy*.5f,"standing/spin velocity change="+still.gripGain.ToString("0.000")+"/"+spin.gripGain.ToString("0.000")+" m/s; whole-body translational/rotational energy gain="+still.energyGain.ToString("0.00")+"/"+spin.energyGain.ToString("0.00")+" J; actual impulse="+still.transferImpulse.ToString("0.00")+"/"+spin.transferImpulse.ToString("0.00")+" Ns. Requires >5Ns additional earned transfer and measured motion/energy above half the free-impulse response. The constraint spring and mat friction also contribute: a catch need not have greater net speed than a differently loaded stationary catch.");
         Start(app);var a=app.Wrestlers[0];var b=app.Wrestlers[1];a.ResetTo(new Vector3(-.5f,.25f,-2));b.ResetTo(new Vector3(.5f,.25f,-2));yield return Observe(app,integrity,.8f);
-        int repeatedAcquisitions=0,previousHands=0;float repeatEnd=Time.realtimeSinceStartup+18,start=Time.realtimeSinceStartup,repeatEnergy=0,repeatSpeed=0,peakAt=0,maxCom=0,maxHorizontalCom=0,comPeakAt=0,energyPeakAt=0,firstIntegral=0,lastIntegral=0,firstDuration=0,lastDuration=0,firstPeak=0,lastPeak=0,lastFrame=start;string peakPart="",comPeakWrestler="",energyPeakPositions="";Vector3 comPeakPosition=Vector3.zero,comPeakVelocity=Vector3.zero;bool withinRing=true;
-        while(Time.realtimeSinceStartup<repeatEnd){
-            float phase=(Time.realtimeSinceStartup-start)%1.5f,angle=phase<.65f?phase/.65f*Mathf.PI*2:0;
+        int repeatedAcquisitions=0,previousHands=0;float repeatEnd=Time.time+18,start=Time.time,repeatEnergy=0,repeatSpeed=0,peakAt=0,maxCom=0,maxHorizontalCom=0,comPeakAt=0,energyPeakAt=0,firstIntegral=0,lastIntegral=0,firstDuration=0,lastDuration=0,firstPeak=0,lastPeak=0,lastFrame=start;string peakPart="",comPeakWrestler="",energyPeakPositions="";Vector3 comPeakPosition=Vector3.zero,comPeakVelocity=Vector3.zero;bool withinRing=true;
+        while(Time.time<repeatEnd){
+            float phase=(Time.time-start)%1.5f,angle=phase<.65f?phase/.65f*Mathf.PI*2:0;
             Vector3 delta=Vector3.ProjectOnPlane(b.Root.position-a.Root.position,Vector3.up),toward=delta.sqrMagnitude>.01f?delta.normalized:Vector3.right;
             Vector3 aim=Quaternion.AngleAxis(-angle*Mathf.Rad2Deg,Vector3.up)*toward,move=delta.magnitude>1.2f?toward*.15f:Vector3.zero;
             // Approach only when out of reach. Constant drift would move this
             // isolated grip test off the raised mat into ropes/ledge/fall forces.
             app.ScriptedInputs[0]=new GBInput{x=move.x,z=move.z,ax=aim.x,az=aim.z,flags=phase>=.65f&&phase<1.27f?GBInput.Left|GBInput.Right:0};app.ScriptedInputs[1]=new GBInput{ax=-toward.x,az=-toward.z};
             int hands=VictimGrips(a,b);if(hands>0&&previousHands==0)repeatedAcquisitions++;previousHands=hands;
-            float energy=KineticEnergy(a)+KineticEnergy(b),now=Time.realtimeSinceStartup,elapsed=now-start,dt=Mathf.Min(.1f,now-lastFrame);lastFrame=now;
+            float energy=KineticEnergy(a)+KineticEnergy(b),now=Time.time,elapsed=now-start,dt=Mathf.Min(.1f,now-lastFrame);lastFrame=now;
             foreach(var w in new[]{a,b}){
                 Vector3 comVelocity=Velocity(w);if(comVelocity.magnitude>maxCom){maxCom=comVelocity.magnitude;comPeakAt=elapsed;comPeakPosition=w.Root.position;comPeakVelocity=comVelocity;comPeakWrestler=w.playerName;}
                 maxHorizontalCom=Mathf.Max(maxHorizontalCom,Vector3.ProjectOnPlane(comVelocity,Vector3.up).magnitude);withinRing&=Mathf.Abs(w.Root.position.x)<3.8f&&Mathf.Abs(w.Root.position.z)<3.8f&&w.Root.position.y>.1f;
@@ -92,20 +95,24 @@ public static class GBAuditMomentum {
         float settledEnergy=KineticEnergy(a)+KineticEnergy(b),settledCom=Mathf.Max(Velocity(a).magnitude,Velocity(b).magnitude);
         check("repeated_grip_momentum_settles_when_released",a.GripCount==0&&b.GripCount==0&&settledCom<1&&settledEnergy<Mathf.Max(150,lastAverage*.75f),"after three seconds with all actions released: max COM="+settledCom.ToString("0.00")+" m/s energy="+settledEnergy.ToString("0.0")+" J vs active late-window average="+lastAverage.ToString("0.0")+" J");
         check("momentum_bodies_connected_finite",integrity.finite&&integrity.gap<.06f&&integrity.missing==0,"all shots, forward jumps, spins and grips; max joint gap="+integrity.gap.ToString("0.0000")+" m missing="+integrity.missing+" maximum body speed="+integrity.maxSpeed.ToString("0.00"));
+        check("mac_momentum_clock_resolves_physics_inputs",Mathf.Abs(Time.fixedDeltaTime-1f/240f)<.0000001f&&Time.frameCount-frameBegin>(Time.time-simulationBegin)*30f,"unchanged240Hz; original maxDelta="+originalMaximum+" audit maxDelta="+Time.maximumDeltaTime+" simSeconds="+(Time.time-simulationBegin)+" realSeconds="+(Time.realtimeSinceStartup-realBegin)+" renderedFrames="+(Time.frameCount-frameBegin)+"; all22 original assertions/durations retained");
         check("momentum_no_runtime_issues",app.Issues.Count==0,string.Join("; ",app.Issues));
+        } finally {
+            float applied=Time.maximumDeltaTime;Time.maximumDeltaTime=originalMaximum;File.WriteAllText(Path.Combine(directory,"momentum-audit-clock.json"),JsonUtility.ToJson(new MacAuditClock{originalMaximumDeltaTime=originalMaximum,appliedMaximumDeltaTime=applied,restoredMaximumDeltaTime=Time.maximumDeltaTime,fixedDeltaTime=Time.fixedDeltaTime,simulationSeconds=Time.time-simulationBegin,realSeconds=Time.realtimeSinceStartup-realBegin,renderedFrames=Time.frameCount-frameBegin},true));
+        }
     }
 
     static IEnumerator Shot(GBApp app,Integrity integrity,string directory,string name,bool running,int defense,ShotSample sample){
         Start(app);var a=app.Wrestlers[0];var b=app.Wrestlers[1];a.ResetTo(new Vector3(running?-3:-.75f,.25f,-1));b.ResetTo(new Vector3(.75f,.25f,-1));
         if(defense!=0)app.ScriptedInputs[1]=new GBInput{ax=-1,flags=defense};yield return Observe(app,integrity,.8f);
         if(running){
-            app.ScriptedInputs[0]=new GBInput{ax=1,x=1,flags=GBInput.Sprint};float end=Time.realtimeSinceStartup+2;
-            while(Time.realtimeSinceStartup<end&&b.Root.position.x-a.Root.position.x>1.5f){integrity.Measure(app);yield return null;}
+            app.ScriptedInputs[0]=new GBInput{ax=1,x=1,flags=GBInput.Sprint};float end=Time.time+2;
+            while(Time.time<end&&b.Root.position.x-a.Root.position.x>1.5f){integrity.Measure(app);yield return null;}
         }
-        sample.approach=Vector3.Dot(Velocity(a)-Velocity(b),Vector3.right);Vector3 initial=b.Root.position;float initialBalance=b.balance,endShot=Time.realtimeSinceStartup+1.05f;
-        app.ScriptedInputs[0]=new GBInput{ax=1,flags=GBInput.Strike};float buttonEnd=Time.realtimeSinceStartup+.1f;
-        while(Time.realtimeSinceStartup<endShot){
-            if(Time.realtimeSinceStartup>=buttonEnd)app.ScriptedInputs[0]=new GBInput{ax=1};
+        sample.approach=Vector3.Dot(Velocity(a)-Velocity(b),Vector3.right);Vector3 initial=b.Root.position;float initialBalance=b.balance,endShot=Time.time+1.05f;
+        app.ScriptedInputs[0]=new GBInput{ax=1,flags=GBInput.Strike};float buttonEnd=Time.time+.1f;
+        while(Time.time<endShot){
+            if(Time.time>=buttonEnd)app.ScriptedInputs[0]=new GBInput{ax=1};
             sample.peakSpeed=Mathf.Max(sample.peakSpeed,HorizontalSpeed(b));sample.displacement=Mathf.Max(sample.displacement,b.Root.position.x-initial.x);sample.balanceLoss=Mathf.Max(sample.balanceLoss,initialBalance-b.balance);sample.hands=Mathf.Max(sample.hands,a.GripCount);sample.shooting|=a.Shooting;
             sample.impacts=a.ShotImpactCount;sample.physicalImpulse=Mathf.Max(sample.physicalImpulse,a.LastShotPhysicalImpulse);sample.contactApproach=Mathf.Max(sample.contactApproach,a.LastShotApproachSpeed);sample.impactPressure=Mathf.Max(sample.impactPressure,b.pressureUntil-Time.time);
             if(!string.IsNullOrEmpty(a.ActionFeedback))sample.feedback=a.ActionFeedback;integrity.Measure(app);yield return null;
@@ -117,13 +124,13 @@ public static class GBAuditMomentum {
         Start(app);var a=app.Wrestlers[0];var b=app.Wrestlers[1];
         a.ResetTo(new Vector3(jumping?-3:-.55f,.25f,-1));b.ResetTo(new Vector3(.55f,.25f,-1));
         if(braced)app.ScriptedInputs[1]=new GBInput{ax=-1,flags=GBInput.Brace};yield return Observe(app,integrity,.8f);
-        if(jumping){app.ScriptedInputs[0]=new GBInput{ax=1,x=1,flags=GBInput.Sprint};float approachEnd=Time.realtimeSinceStartup+2;
-            while(Time.realtimeSinceStartup<approachEnd&&b.Root.position.x-a.Root.position.x>1.4f){integrity.Measure(app);yield return null;}}
-        sample.approach=Vector3.Dot(Velocity(a)-Velocity(b),Vector3.right);Vector3 start=b.Root.position;float balance=b.balance,end=Time.realtimeSinceStartup+1.8f,moveEnd=Time.realtimeSinceStartup+.20f;
+        if(jumping){app.ScriptedInputs[0]=new GBInput{ax=1,x=1,flags=GBInput.Sprint};float approachEnd=Time.time+2;
+            while(Time.time<approachEnd&&b.Root.position.x-a.Root.position.x>1.4f){integrity.Measure(app);yield return null;}}
+        sample.approach=Vector3.Dot(Velocity(a)-Velocity(b),Vector3.right);Vector3 start=b.Root.position;float balance=b.balance,end=Time.time+1.8f,moveEnd=Time.time+.20f;
         sample.before="before Space stamina="+a.stamina.ToString("0.00")+" grounded="+a.grounded+" Down="+a.Down+" pinControlled="+a.PinControlled+" jumpWindow="+a.JumpFlightWindow+" gap="+(b.Root.position.x-a.Root.position.x).ToString("0.00")+" approach="+sample.approach.ToString("0.00")+" feet="+a.bodies[11].position.y.ToString("0.00")+"/"+a.bodies[14].position.y.ToString("0.00");
         app.ScriptedInputs[0]=new GBInput{ax=1,x=jumping?1:0,flags=jumping?GBInput.Jump:0};
-        while(Time.realtimeSinceStartup<end){
-            if(Time.realtimeSinceStartup>=moveEnd)app.ScriptedInputs[0]=new GBInput{ax=1,flags=jumping?GBInput.Jump:0};
+        while(Time.time<end){
+            if(Time.time>=moveEnd)app.ScriptedInputs[0]=new GBInput{ax=1,flags=jumping?GBInput.Jump:0};
             sample.funded|=a.JumpFlightWindow;
             if(string.IsNullOrEmpty(sample.after)&&a.command.Has(GBInput.Jump))sample.after="first processed Space stamina="+a.stamina.ToString("0.00")+" grounded="+a.grounded+" Down="+a.Down+" window="+a.JumpFlightWindow+" velocity="+Velocity(a).ToString("F2")+" inputflags="+a.command.flags;
             sample.airborne|=!a.grounded&&Velocity(a).y>.4f;sample.impacts=a.BodyImpactCount;sample.physicalImpulse=Mathf.Max(sample.physicalImpulse,a.LastBodyPhysicalImpulse);sample.impactApproach=Mathf.Max(sample.impactApproach,a.LastBodyImpactApproachSpeed);
@@ -134,15 +141,15 @@ public static class GBAuditMomentum {
     static IEnumerator SpinGrab(GBApp app,Integrity integrity,string directory,bool spinning,SpinSample sample){
         Start(app);var a=app.Wrestlers[0];var b=app.Wrestlers[1];a.ResetTo(new Vector3(-.5f,.25f,-1));b.ResetTo(new Vector3(.5f,.25f,-1));yield return Observe(app,integrity,2);
         foreach(var body in b.bodies)sample.targetMass+=body.mass;
-        float spinStart=Time.realtimeSinceStartup,spinEnd=spinStart+.7f;
-        while(Time.realtimeSinceStartup<spinEnd){
-            float angle=spinning?(Time.realtimeSinceStartup-spinStart)/.7f*Mathf.PI*2:0;app.ScriptedInputs[0]=new GBInput{ax=Mathf.Cos(angle),az=Mathf.Sin(angle)};
+        float spinStart=Time.time,spinEnd=spinStart+.7f;
+        while(Time.time<spinEnd){
+            float angle=spinning?(Time.time-spinStart)/.7f*Mathf.PI*2:0;app.ScriptedInputs[0]=new GBInput{ax=Mathf.Cos(angle),az=Mathf.Sin(angle)};
             sample.angularSpeed=Mathf.Max(sample.angularSpeed,Mathf.Abs(a.Root.angularVelocity.y));integrity.Measure(app);yield return null;
         }
-        Vector3 beforeGripVelocity=Velocity(b);float beforeEnergy=KineticEnergy(b),reachStart=Time.realtimeSinceStartup,reachEnd=reachStart+2.6f;sample.spinAtGrip=a.RecentSpinMomentum;Aim(app,GBInput.Left);
-        while(Time.realtimeSinceStartup<reachEnd&&VictimGrips(a,b)==0){beforeGripVelocity=Velocity(b);beforeEnergy=KineticEnergy(b);integrity.Measure(app);yield return null;}
-        sample.hands=VictimGrips(a,b);sample.gripDelay=Time.realtimeSinceStartup-reachStart;sample.transferImpulse=a.LastGrabMomentumImpulse;float holdEnd=Time.realtimeSinceStartup+.2f;
-        while(Time.realtimeSinceStartup<holdEnd){sample.gripGain=Mathf.Max(sample.gripGain,Vector3.ProjectOnPlane(Velocity(b)-beforeGripVelocity,Vector3.up).magnitude);sample.energyGain=Mathf.Max(sample.energyGain,KineticEnergy(b)-beforeEnergy);integrity.Measure(app);yield return null;}
+        Vector3 beforeGripVelocity=Velocity(b);float beforeEnergy=KineticEnergy(b),reachStart=Time.time,reachEnd=reachStart+2.6f;sample.spinAtGrip=a.RecentSpinMomentum;Aim(app,GBInput.Left);
+        while(Time.time<reachEnd&&VictimGrips(a,b)==0){beforeGripVelocity=Velocity(b);beforeEnergy=KineticEnergy(b);integrity.Measure(app);yield return null;}
+        sample.hands=VictimGrips(a,b);sample.gripDelay=Time.time-reachStart;sample.transferImpulse=a.LastGrabMomentumImpulse;float holdEnd=Time.time+.2f;
+        while(Time.time<holdEnd){sample.gripGain=Mathf.Max(sample.gripGain,Vector3.ProjectOnPlane(Velocity(b)-beforeGripVelocity,Vector3.up).magnitude);sample.energyGain=Mathf.Max(sample.energyGain,KineticEnergy(b)-beforeEnergy);integrity.Measure(app);yield return null;}
         app.Capture(Path.Combine(directory,"momentum-"+(spinning?"spin":"stationary")+"-grab-carry.png"));
     }
 }

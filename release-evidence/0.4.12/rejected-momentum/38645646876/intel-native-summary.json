@@ -1,0 +1,106 @@
+{
+  "version": "0.4.12",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+  "architecture": "x86_64",
+  "nativePhysicsPassed": false,
+  "graphicsTested": true,
+  "privateInternetJoinTested": false,
+  "nativeUpdaterLocalTested": false,
+  "unchangedUpdaterBaseline": "0.4.11 local27/27 each; Intel actual-public5/5; ARM actual-public incomplete/hosted quota",
+  "currentUpdaterBundleVersionSignatureChecked": true,
+  "sessionLifetimeTested": false,
+  "sessionBaseline": "0.4.11 unchanged protocol12 lifecycle37 checks per architecture",
+  "reports": [
+    {
+      "file": "physics-snapshot/physics-snapshots.json",
+      "checks": 8,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "momentum/momentum.json",
+      "checks": 22,
+      "failed": 11,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "stamina/stamina.json",
+      "checks": 10,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "ground-recovery/ground-recovery.json",
+      "checks": 26,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "scramble/scramble.json",
+      "checks": 13,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Null Device"
+    },
+    {
+      "file": "camera-obstruction/camera-obstruction.json",
+      "checks": 25,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "hand-contact/hand-contact.json",
+      "checks": 11,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    },
+    {
+      "file": "ui/ui.json",
+      "checks": 2,
+      "failed": 0,
+      "issues": 0,
+      "graphics": "Apple Paravirtual device"
+    }
+  ],
+  "unresolvedChecks": [],
+  "snapshotCpuEvidence": {
+    "scope": "Paired local helper CPU calls on identical native states; actor/state writes excluded; alternating AB/BA; not whole-game FPS",
+    "seed": 187012,
+    "cases": 400,
+    "pairedCallsPerHelper": 1200,
+    "preexistingNonzeroAccumulatorCases": 160,
+    "preexistingNonfiniteAccumulatorCases": 0,
+    "changedAccumulatorCases": 0,
+    "referenceSpringMs": 4.0280000000000005,
+    "candidateSpringMs": 3.3095000000000003,
+    "referenceElbowMs": 55.6533,
+    "candidateElbowMs": 31.7393,
+    "springOldOverNew": 1.2171022813113763,
+    "elbowOldOverNew": 1.7534507692356165,
+    "accumulatorExamples": [
+      "case=0 forceA (0, 0, 0) -> (0, 0, 0) forceB (0, 0, 0) -> (0, 0, 0) torqueA (0, 11.999999, 599999.938) -> (0, 11.999999, 599999.938) torqueB (0, 0, 0) -> (0, 0, 0)",
+      "case=2 forceA (0, 0, 0) -> (0, 0, 0) forceB (186.607529, 340.238556, 286.9987) -> (186.607529, 340.238556, 286.9987) torqueA (0, 0, 0) -> (0, 0, 0) torqueB (575840.75, -321771.938, 3340431) -> (575840.75, -321771.938, 3340431)",
+      "case=5 forceA (293.769165, 75.4748154, 78.41064) -> (293.769165, 75.4748154, 78.41064) forceB (0, 0, 0) -> (0, 0, 0) torqueA (76086.08, -1486584.75, 3167334) -> (76086.08, -1486584.75, 3167334) torqueB (0, 0, 0) -> (0, 0, 0)"
+    ],
+    "resultChecksum": {
+      "x": -265638.21875,
+      "y": 153139.9375,
+      "z": -238062.203125
+    }
+  },
+  "functionalFailures": [
+    {
+      "category": "momentum",
+      "type": "AssertionError",
+      "message": "('momentum', [{'name': 'momentum_shots_contact', 'passed': False, 'evidence': 'standing/running balance loss=38.5/2.5 physical collision impulse=6.9/0.0 Ns; target peak m/s=2.12/1.88'}, {'name': 'fast_shot_has_stronger_physical_result', 'passed': False, 'evidence': 'standing/running target peak=2.12/1.88 m/s; forward travel=0.26/0.29 m; contact approach=2.72/0.00 m/s impact pressure=0.205/0.000 s; impact should carry into readable movement before recovery'}, {'name': 'momentum_q_never_auto_grabs', 'passed': False, 'evidence': 'maximum hands standing/running/braced=0/0/0; Q supplied without either hand button'}, {'name': 'sprawl_reduces_running_shot', 'passed': False, 'evidence': 'unbraced/sprawled balance loss=2.5/0.0 pressure=0.00/0.00 s; target peak=1.88/0.49'}, {'name': 'shot_contact_budget_is_one', 'passed': False, 'evidence': 'paid Q impact counts standing/running/braced/sprawled=1/0/1/0; no duplicate per collider or stay callback'}, {'name': 'forward_jump_has_earned_collision', 'passed': False, 'evidence': 'paid normal jump airborne=False actual core collision count=0 impulse=0.0 Ns; approach=0.00 m/s; launch diagnostics before Space stamina=147.25 grounded=True Down=False pinControlled=False jumpWindow=False gap=1.11 approach=4.56 feet=0.37/0.41 ; first processed Space stamina=141.58 grounded=False Down=False window=True velocity=(0.74, -0.06, 0.00) inputflags=8'}, {'name': 'jump_momentum_beats_stationary_touch', 'passed': False, 'evidence': 'stationary/jump opponent peak=0.02/1.90 m/s travel=0.02/0.82 m balance loss=0.0/1.5'}, {'name': 'jump_one_contact_budget_no_auto_grab', 'passed': False, 'evidence': 'normal Jump held after initial edge: impacts=0/0/0 hands=0/0/0; no attack injection or impulse injection'}, {'name': 'hard_spin_is_physical_rotation', 'passed': False, 'evidence': 'standing/spinning root yaw peak=0.02/0.02 rad/s from Rigidbody.angularVelocity'}, {'name': 'recent_spin_carries_grabbed_opponent', 'passed': False, 'evidence': 'standing/spin velocity change=0.269/0.179 m/s; whole-body translational/rotational energy gain=3.22/2.12 J; actual impulse=1.97/1.65 Ns. Requires >5Ns additional earned transfer and measured motion/energy above half the free-impulse response. The constraint spring and mat friction also contribute: a catch need not have greater net speed than a differently loaded stationary catch.'}, {'name': 'repeated_grips_keep_energy_bounded', 'passed': False, 'evidence': 'max massweighted COM=0.38 horizontal=0.38 m/s; peak COM wrestler=PLAYER ONE root=(0.37, 1.27, -2.28) velocity=(0.26, 0.00, 0.28) time=16.388 s; total kinetic energy peak=207.3 J time=11.418 s attacker=(-0.14, 1.25, -2.21) defender=(0.50, 1.25, -1.72); first/last 3s average=24.1/40.9 peak=67.8/137.1 J; limb peak diagnostic=8.68 m/s part=PLAYER ONE left hand time=11.418 s'}], 0)"
+    }
+  ],
+  "nativeChecks": 117,
+  "passedChecks": 106
+}
