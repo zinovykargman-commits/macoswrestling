@@ -1,0 +1,57 @@
+{
+  "version": "0.4.11",
+  "actualPublicGameSha256": "65f7d8ae8691b842422324b17b4be55f8802eeab1e306649ae673a47b6b232cd",
+  "publicDownloadReplaceRestartProvedOnBothArchitectures": false,
+  "intel": {
+    "run": 38622429539,
+    "platform": "macOS 15 Intel",
+    "actualPublicDownloadReplaceRestartPassed": true,
+    "checks": 5,
+    "passed": 5,
+    "issues": 0,
+    "result": "installed-and-restarted",
+    "exactHashAndChildPidTokenReceiptsVerified": true
+  },
+  "nativeLocalUpdater": [
+    {
+      "run": 38619613930,
+      "architecture": "arm64",
+      "platform": "macOS-15.7.9-arm64-arm-64bit-Mach-O",
+      "checks": 27,
+      "passed": 27,
+      "issues": 0,
+      "scope": "Native local archive validation, replacement, first-frame restart acknowledgement and rollback; separate from actual public download."
+    },
+    {
+      "run": 38619613930,
+      "architecture": "x86_64",
+      "platform": "macOS-15.7.9-x86_64-i386-64bit-Mach-O",
+      "checks": 27,
+      "passed": 27,
+      "issues": 0,
+      "scope": "Native local archive validation, replacement, first-frame restart acknowledgement and rollback; separate from actual public download."
+    }
+  ],
+  "armPublic": {
+    "status": "blocked-by-hosted-anonymous-api-quota",
+    "diagnosticRun": 38626373317,
+    "preflight": {
+      "url": "https://api.github.com/repos/zinovykargman-commits/macoswrestling/releases/latest",
+      "authenticated": false,
+      "architecture": "arm64",
+      "system": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "status": 403,
+      "remaining": "0",
+      "reset": "1792009707",
+      "body": "{\"message\":\"API rate limit exceeded for 13.105.117.162. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)\",\"documentation_url\":\"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting\"}\n"
+    },
+    "gameLaunchedInDiagnostic": false,
+    "previousGameRun": 38624447090,
+    "previousGameChecksPassed": 2,
+    "previousGameChecksTotal": 3,
+    "previousGameFailure": "No native installer handoff appeared before 300-second caller deadline. The old runner did not export early child Status, so that particular failure cause is unproven.",
+    "furtherRetries": false
+  },
+  "publishedArchivesModified": false,
+  "productionSourceModified": false
+}

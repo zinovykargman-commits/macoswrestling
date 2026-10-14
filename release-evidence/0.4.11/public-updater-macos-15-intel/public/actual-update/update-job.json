@@ -1,0 +1,14 @@
+{
+    "app": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/GRIP BREAK.app",
+    "stage": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/.GRIP_BREAK-update-98ba295cd14a4c09b4fc191170e5355c/stage/GRIP BREAK.app",
+    "root": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/.GRIP_BREAK-update-98ba295cd14a4c09b4fc191170e5355c",
+    "backup": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/.GRIP_BREAK-backup-7b3009a5117a4a189687ec140f3cde7b.app",
+    "failed": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/.GRIP_BREAK-failed-7b3009a5117a4a189687ec140f3cde7b.app",
+    "version": "0.4.11",
+    "token": "7b3009a5117a4a189687ec140f3cde7b",
+    "evidence": "/private/var/folders/20/jp1_0n3n7kndh6rnbqb5344m0000gn/T/GRIP_BREAK-MacUpdaterAudit-74b8b1e9c890488e89369e647680641e/restart-evidence",
+    "parentPid": 6066,
+    "audit": true,
+    "failRestart": false,
+    "failAck": false
+}

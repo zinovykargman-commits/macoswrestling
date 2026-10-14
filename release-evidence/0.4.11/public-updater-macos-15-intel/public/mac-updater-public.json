@@ -1,0 +1,41 @@
+{
+    "build": "0.4.11",
+    "engine": "6000.3.7f1",
+    "hardware": "Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz / 14336 MB",
+    "graphics": "Null Device",
+    "startedUtc": "2026-10-14T19:18:50.6546900Z",
+    "duration": 66.58598327636719,
+    "averageFps": 1.8946037292480469,
+    "minFps": 0.6745138764381409,
+    "bodies": 92,
+    "issues": 0,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "checks": [
+        {
+            "name": "test_inputs_not_serialized",
+            "passed": true,
+            "evidence": "runtime-only input; scene cannot install an empty test array"
+        },
+        {
+            "name": "mac_public_download_and_native_handoff",
+            "passed": true,
+            "evidence": "actualGitHub download/checksum/CRC/signature stage in ownedclone"
+        },
+        {
+            "name": "mac_public_checksum_and_real_replace_restart",
+            "passed": true,
+            "evidence": "publicactualZIP installed and firstframe acknowledged; result=installed-and-restarted\n"
+        },
+        {
+            "name": "mac_public_update_preserves_original_and_outside_files",
+            "passed": true,
+            "evidence": "callerapp and outside file remain unchanged; no prefs writes by automated clones"
+        },
+        {
+            "name": "connected_body_joints",
+            "passed": true,
+            "evidence": "missing frames=0 maximum physical anchor separation=0.0050 m"
+        }
+    ]
+}

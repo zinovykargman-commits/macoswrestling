@@ -1,4 +1,4 @@
-# GRIP BREAK for Mac — 0.4.11
+# GRIP BREAK for Mac â€” 0.4.11
 
 **[Download the Mac game](https://github.com/zinovykargman-commits/macoswrestling/releases/latest)**. Extract GRIP_BREAK-macOS.zip, then open GRIP BREAK.app. Universal Intel and Apple Silicon; macOS 12 or later. Your friend does not need Unity. Use a mouse with separate left/right buttons.
 
@@ -14,7 +14,7 @@ Grounded stamina: after 2.5 seconds physically on the mat, resting can regenerat
 
 Pin chest-down or back-down with both actual shoulders grounded for 2.5 seconds; ropes count. The out-of-bounds offender restarts on hands/knees with the opponent kneeling behind, then rapid 3/2/1 and whistle.
 
-CHECK FOR UPDATE checks the latest stable Mac release. UPDATE & RESTART downloads and verifies its SHA-256, ZIP members/CRC, executable permissions and native code signatures, then replaces only this app after it closes and restarts it. Put the app in a writable folder; no administrator prompt is used. Preferences stay outside the app. Versions 0.4.10 and earlier need one manual download of 0.4.11 to gain this updater. Native installation/recovery was verified on Intel and Apple Silicon temporary app copies. The actual-public download/install/restart test runs after publication and is recorded in PUBLIC_VERIFICATION.md.
+CHECK FOR UPDATE checks the latest stable Mac release. UPDATE & RESTART downloads and verifies its SHA-256, ZIP members/CRC, executable permissions and native code signatures, then replaces only this app after it closes and restarts it. Put the app in a writable folder; no administrator prompt is used. Preferences stay outside the app. Versions 0.4.10 and earlier need one manual download of 0.4.11 to gain this updater. Native installation/recovery was verified on Intel and Apple Silicon temporary app copies. After publication, actual public download/install/restart passed on Intel; Apple Silicon passed 27 local updater checks, while its public-route test remains incomplete after a confirmed hosted GitHub API quota block. Exact receipts and limits are recorded in PUBLIC_VERIFICATION.md.
 
 Native macOS 15 Intel and Apple Silicon startup, gameplay, gym geometry and appearance checks passed; actual screenshots were inspected (430/432 total assertions). The gym frame-rate benchmark failed on 2 virtual graphics runner(s); actual FPS and failures are preserved in raw reports. Physical-Mac performance remains unverified. Current 0.4.11 live internet play is untested. See VALIDATION.md.
 

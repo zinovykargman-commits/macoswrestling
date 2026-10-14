@@ -1,0 +1,10 @@
+{
+  "url": "https://api.github.com/repos/zinovykargman-commits/macoswrestling/releases/latest",
+  "authenticated": false,
+  "architecture": "arm64",
+  "system": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "status": 403,
+  "remaining": "0",
+  "reset": "1792009707",
+  "body": "{\"message\":\"API rate limit exceeded for 13.105.117.162. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)\",\"documentation_url\":\"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting\"}\n"
+}

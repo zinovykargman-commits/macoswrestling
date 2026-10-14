@@ -1,0 +1,20 @@
+{
+  "version": "0.4.11",
+  "architecture": "arm64",
+  "actualStableRelease": "https://github.com/zinovykargman-commits/macoswrestling/releases/tag/v0.4.11",
+  "bootstrapArchiveHash": "65f7d8ae8691b842422324b17b4be55f8802eeab1e306649ae673a47b6b232cd",
+  "bootstrapApiAuthenticated": true,
+  "gameUpdaterAuthenticated": false,
+  "nativeChecks": 3,
+  "passedChecks": 2,
+  "issues": 0,
+  "failed": [
+    {
+      "name": "mac_public_download_and_native_handoff",
+      "passed": false,
+      "evidence": "actualGitHub download/checksum/CRC/signature stage in ownedclone"
+    }
+  ],
+  "publicDownloadReplaceRestartPassed": false,
+  "scope": "Actual latestGitHub archive/checksum re-downloaded by game,strictZIP/CRC/signature verified,owneddisposable.app replaced,andnative firstframeack received; callerapp/preferences/outsidefiles unchanged; no DeveloperID/notarization claim"
+}
