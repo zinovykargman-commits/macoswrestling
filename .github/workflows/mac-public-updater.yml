@@ -1,0 +1,23 @@
+name: Verify public Mac in-game updater
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  updater:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exercise actual public update in disposable native app clone
+        run: python3 test-public-mac-updater-0411.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-updater-${{ matrix.runner }}
+          path: checks
+          retention-days: 7

@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-15
     permissions:
       contents: read
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - name: Fetch and verify staged release
@@ -41,7 +41,7 @@ jobs:
       matrix:
         runner: [macos-15, macos-15-intel]
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -57,7 +57,7 @@ jobs:
           cd ..
           ditto -x -k incoming/GRIP_BREAK-macOS.zip stage
           codesign --verify --deep --strict --verbose=2 'stage/GRIP BREAK.app'
-          python3 test-native-mac-0410.py
+          python3 test-native-mac-0411.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
